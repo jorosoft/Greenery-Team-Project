@@ -9,6 +9,18 @@ namespace AirportSystem.Data
             : base("AirportSystemDB")
         {
         }
+        
+        public virtual IDbSet<Aircraft> Aircrafts { get; set; }
+
+        public virtual IDbSet<Airline> Airlines { get; set; }
+
+        public virtual IDbSet<Airport> Airports { get; set; }
+
+        public virtual IDbSet<Flight> Flights { get; set; }
+
+        public virtual IDbSet<Manufacturer> Manufacturers { get; set; }
+
+        public virtual IDbSet<Model> Models { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -24,9 +36,5 @@ namespace AirportSystem.Data
                 .HasForeignKey(m => m.DestinationAirportId)
                 .WillCascadeOnDelete(false);
         }
-
-        public virtual IDbSet<Airport> Airports { get; set; }
-
-        public virtual IDbSet<Flight> Flights { get; set; }
     }
 }

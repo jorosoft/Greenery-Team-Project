@@ -49,10 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aircraft.cs" />
+    <Compile Include="Airline.cs" />
     <Compile Include="Airport.cs" />
+    <Compile Include="Contracts\IAircraft.cs" />
+    <Compile Include="Contracts\IAirline.cs" />
     <Compile Include="Contracts\IAirport.cs" />
     <Compile Include="Contracts\IFlight.cs" />
+    <Compile Include="Contracts\IManufacturer.cs" />
+    <Compile Include="Contracts\IModel.cs" />
     <Compile Include="Flight.cs" />
+    <Compile Include="Manufacturer.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@ namespace AirportSystem.Converters
 {
     public class ExcelDeserializer : IDeserializer
     {
-        public IEnumerable<IFlight> Deserialize()
+        public IEnumerable<IFlight> Deserialize(string filePath)
         {
             throw new NotImplementedException();
         }
