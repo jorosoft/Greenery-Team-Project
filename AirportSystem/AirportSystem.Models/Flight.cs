@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using AirportSystem.Models.Contracts;
 
 namespace AirportSystem.Models
@@ -25,6 +24,7 @@ namespace AirportSystem.Models
         [Required]
         public int DestinationAirportId { get; set; }
 
+        [Required]
         public int AircraftId { get; set; }
 
         public virtual Airport SourceAirport { get; set; }

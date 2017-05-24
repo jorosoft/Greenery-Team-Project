@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using AirportSystem.Models.Contracts;
 
 namespace AirportSystem.Models
@@ -7,10 +8,13 @@ namespace AirportSystem.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public int ManufacturerId { get; set; }
 
+        [Required]
         public int ModelId { get; set; }
 
+        [Required]
         public int OwnerAirlineId { get; set; }
 
         public virtual Manufacturer Manufacturer { get; set; }
