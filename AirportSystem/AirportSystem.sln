@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportSystem", "AirportSystem\AirportSystem.csproj", "{2E2DA455-145F-4B83-BD8B-B5768C706599}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportSystem.Data", "AirportSystem.Data\AirportSystem.Data.csproj", "{D3F097AC-D5BD-4323-8707-273A7A9DE6A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportSystem.Models", "AirportSystem.Models\AirportSystem.Models.csproj", "{A5286E04-4028-48A0-8985-D395EC6B220D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportSystem.Tests", "AirportSystem.Tests\AirportSystem.Tests.csproj", "{5E212CE6-9332-433E-8139-0975D77DB9A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportSystem.ConsoleClient", "AirportSystem.ConsoleClient\AirportSystem.ConsoleClient.csproj", "{C0065A79-100C-4631-83C6-3DE50A54F02F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirportSystem.WebClient", "AirportSystem.WebClient\AirportSystem.WebClient.csproj", "{A9122AF2-E3D0-49FF-88A6-7F1AA37A517E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E2DA455-145F-4B83-BD8B-B5768C706599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2DA455-145F-4B83-BD8B-B5768C706599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2DA455-145F-4B83-BD8B-B5768C706599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2DA455-145F-4B83-BD8B-B5768C706599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F097AC-D5BD-4323-8707-273A7A9DE6A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F097AC-D5BD-4323-8707-273A7A9DE6A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F097AC-D5BD-4323-8707-273A7A9DE6A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F097AC-D5BD-4323-8707-273A7A9DE6A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5286E04-4028-48A0-8985-D395EC6B220D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5286E04-4028-48A0-8985-D395EC6B220D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5286E04-4028-48A0-8985-D395EC6B220D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5286E04-4028-48A0-8985-D395EC6B220D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E212CE6-9332-433E-8139-0975D77DB9A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E212CE6-9332-433E-8139-0975D77DB9A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E212CE6-9332-433E-8139-0975D77DB9A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E212CE6-9332-433E-8139-0975D77DB9A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0065A79-100C-4631-83C6-3DE50A54F02F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0065A79-100C-4631-83C6-3DE50A54F02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0065A79-100C-4631-83C6-3DE50A54F02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0065A79-100C-4631-83C6-3DE50A54F02F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9122AF2-E3D0-49FF-88A6-7F1AA37A517E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9122AF2-E3D0-49FF-88A6-7F1AA37A517E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9122AF2-E3D0-49FF-88A6-7F1AA37A517E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9122AF2-E3D0-49FF-88A6-7F1AA37A517E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
