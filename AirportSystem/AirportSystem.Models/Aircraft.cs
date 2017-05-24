@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using AirportSystem.Models.Contracts;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AirportSystem.Models
 {
+    [Table("Aircrafts")]
     public class Aircraft : IAircraft
     {
         public int Id { get; set; }
@@ -15,9 +17,9 @@ namespace AirportSystem.Models
         public int ModelId { get; set; }
 
         [Required]
-        public int OwnerAirlineId { get; set; }
+        public int AirlineId { get; set; }
 
-        public virtual Manufacturer Manufacturer { get; set; }
+        public virtual Manufacturer Manufacturers { get; set; }
 
         public virtual Model Models { get; set; }
 

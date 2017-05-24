@@ -8,6 +8,6 @@
 
         int ModelId { get; set; }
 
-        int OwnerAirlineId { get; set; }
+        int AirlineId { get; set; }
     }
 }
