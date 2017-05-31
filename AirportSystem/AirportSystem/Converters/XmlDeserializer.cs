@@ -9,6 +9,11 @@ namespace AirportSystem.Converters
     {
         public IEnumerable<IFlight> Deserialize(string filePath)
         {
+            if (filePath == null)
+            {
+                throw new ArgumentNullException("No input file name is given!");
+            }
+
             throw new NotImplementedException();
         }
     }

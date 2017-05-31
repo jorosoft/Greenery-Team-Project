@@ -41,12 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDeserializer.cs" />
+    <Compile Include="Contracts\IScheduleUpdater.cs" />
     <Compile Include="Converters\ExcelDeserializer.cs" />
     <Compile Include="Converters\JsonDeserializer.cs" />
     <Compile Include="Converters\XmlDeserializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduleUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AirportSystem.Data\AirportSystem.Data.csproj">
+      <Project>{D3F097AC-D5BD-4323-8707-273A7A9DE6A4}</Project>
+      <Name>AirportSystem.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AirportSystem.Models\AirportSystem.Models.csproj">
       <Project>{a5286e04-4028-48a0-8985-d395ec6b220d}</Project>
       <Name>AirportSystem.Models</Name>
