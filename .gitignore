@@ -238,3 +238,6 @@ TeamWorks
 
 node_modules/
 bower_components/
+coverage/
+/results.xml
+/TestResult.xml
