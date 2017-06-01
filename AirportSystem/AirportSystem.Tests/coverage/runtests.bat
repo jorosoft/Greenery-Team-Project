@@ -1,0 +1,1 @@
+..\\..\\packages\\NUnit.ConsoleRunner.3.6.1\\tools\\nunit3-console.exe ..\\bin\\Debug\\AirportSystem.Tests.dll
