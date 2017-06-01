@@ -239,5 +239,5 @@ TeamWorks
 node_modules/
 bower_components/
 coverage/
-/results.xml
-/TestResult.xml
+/AirportSystem/AirportSystem.Tests/CodeCoverage/results.xml
+/AirportSystem/AirportSystem.Tests/CodeCoverage/TestResult.xml
