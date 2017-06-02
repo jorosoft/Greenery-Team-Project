@@ -15,6 +15,6 @@ namespace AirportSystem.Models
         [Index(IsUnique = true)]
         public string Name { get; set; }
 
-        public virtual ICollection<Plane> Aircrafts { get; set; }
+        public virtual ICollection<Plane> Planes { get; set; }
     }
 }

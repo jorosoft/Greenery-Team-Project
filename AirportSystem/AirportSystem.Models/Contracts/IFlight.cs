@@ -10,10 +10,10 @@ namespace AirportSystem.Models.Contracts
 
         DateTime ActualTime { get; set; }
 
-        IFlightType FlightTypeId { get; set; }
+        int FlightTypeId { get; set; }
 
         int DestinationAirportId { get; set; }
 
-        int AircraftId { get; set; }
+        int PlaneId { get; set; }
     }
 }
