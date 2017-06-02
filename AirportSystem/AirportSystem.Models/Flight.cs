@@ -9,28 +9,23 @@ namespace AirportSystem.Models
         public int Id { get; set; }
 
         [Required]
-        public DateTime SheduledDepartureTime { get; set; }
+        public DateTime SheduledTime { get; set; }
 
-        [Required]
-        public DateTime SheduledArrivalTime { get; set; }
-
-        public DateTime ActualDepartureTime { get; set; }
-
-        public DateTime AactualArrivalTime { get; set; }
-
-        [Required]        
-        public int SourceAirportId { get; set; }
+        public DateTime ActualTime { get; set; }              
 
         [Required]
         public int DestinationAirportId { get; set; }
 
         [Required]
-        public int AircraftId { get; set; }
+        public IFlightType FlightTypeId { get; set; }
 
-        public virtual Airport SourceAirport { get; set; }
+        [Required]
+        public int AircraftId { get; set; }
 
         public virtual Airport DestinationAirport { get; set; }
 
-        public virtual Aircraft Aircraft { get; set; }
+        public virtual FlightType FlightType { get; set; }
+
+        public virtual Plane Aircraft { get; set; }
     }
 }

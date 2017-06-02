@@ -15,6 +15,11 @@ namespace AirportSystem.ConsoleClient
             using (AirportSystemDbContext db = new AirportSystemDbContext())
             {
                 db.Database.CreateIfNotExists();
+
+                foreach (var e in db.FlightTypes)
+                {
+                    Console.WriteLine(e.Name);
+                }
             }
         }
     }

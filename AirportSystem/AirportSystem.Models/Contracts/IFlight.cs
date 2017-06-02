@@ -6,15 +6,11 @@ namespace AirportSystem.Models.Contracts
     {
         int Id { get; set; }
 
-        DateTime SheduledDepartureTime { get; set; }
+        DateTime SheduledTime { get; set; }
 
-        DateTime SheduledArrivalTime { get; set; }
+        DateTime ActualTime { get; set; }
 
-        DateTime ActualDepartureTime { get; set; }
-
-        DateTime AactualArrivalTime { get; set; }
-
-        int SourceAirportId { get; set; }
+        IFlightType FlightTypeId { get; set; }
 
         int DestinationAirportId { get; set; }
 

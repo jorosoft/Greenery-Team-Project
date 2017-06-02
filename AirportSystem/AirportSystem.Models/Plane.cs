@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using AirportSystem.Models.Contracts;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AirportSystem.Models
 {
-    [Table("Aircrafts")]
-    public class Aircraft : IAircraft
+    public class Plane : IPlane
     {
         public int Id { get; set; }
 

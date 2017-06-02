@@ -64,6 +64,10 @@
       <Project>{d3f097ac-d5bd-4323-8707-273a7a9de6a4}</Project>
       <Name>AirportSystem.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AirportSystem.Models\AirportSystem.Models.csproj">
+      <Project>{a5286e04-4028-48a0-8985-d395ec6b220d}</Project>
+      <Name>AirportSystem.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

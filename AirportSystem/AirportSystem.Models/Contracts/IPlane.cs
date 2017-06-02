@@ -1,6 +1,6 @@
 ﻿namespace AirportSystem.Models.Contracts
 {
-    interface IAircraft
+    interface IPlane
     {
         int Id { get; set; }
 

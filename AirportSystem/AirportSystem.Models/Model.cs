@@ -17,6 +17,6 @@ namespace AirportSystem.Models
         
         public int Seats { get; set; }
 
-        public virtual ICollection<Aircraft> Aircrafts { get; set; }
+        public virtual ICollection<Plane> Aircrafts { get; set; }
     }
 }

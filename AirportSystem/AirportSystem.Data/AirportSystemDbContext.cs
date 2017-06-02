@@ -10,7 +10,7 @@ namespace AirportSystem.Data
         {
         }
         
-        public virtual IDbSet<Aircraft> Aircrafts { get; set; }
+        public virtual IDbSet<Plane> Planes { get; set; }
 
         public virtual IDbSet<Airline> Airlines { get; set; }
 
@@ -18,23 +18,15 @@ namespace AirportSystem.Data
 
         public virtual IDbSet<Flight> Flights { get; set; }
 
+        public virtual IDbSet<FlightType> FlightTypes { get; set; }
+
         public virtual IDbSet<Manufacturer> Manufacturers { get; set; }
 
         public virtual IDbSet<Model> Models { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Flight>()
-                .HasRequired(m => m.SourceAirport)
-                .WithMany(m => m.SourceFlights)
-                .HasForeignKey(m => m.SourceAirportId)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Flight>()
-                .HasRequired(m => m.DestinationAirport)
-                .WithMany(m => m.DestinationFlights)
-                .HasForeignKey(m => m.DestinationAirportId)
-                .WillCascadeOnDelete(false);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

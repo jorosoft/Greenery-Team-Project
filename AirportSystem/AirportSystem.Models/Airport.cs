@@ -21,8 +21,6 @@ namespace AirportSystem.Models
         [Index(IsUnique = true)]
         public string Name { get; set; }
 
-        public virtual ICollection<Flight> SourceFlights { get; set; }
-
-        public virtual ICollection<Flight> DestinationFlights { get; set; }
+        public virtual ICollection<Flight> Flights { get; set; }
     }
 }

@@ -5,16 +5,16 @@ using AirportSystem.Models.Contracts;
 
 namespace AirportSystem.Models
 {
-    public class Airline : IAirline
+    public class FlightType : IFlightType
     {
         public int Id { get; set; }
 
         [Required]
         [MinLength(3)]
-        [MaxLength(25)]
+        [MaxLength(10)]
         [Index(IsUnique = true)]
         public string Name { get; set; }
 
-        public virtual ICollection<Plane> Aircrafts { get; set; }
+        public virtual ICollection<Flight> Flights { get; set; }
     }
 }
