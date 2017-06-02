@@ -1,0 +1,26 @@
+{
+    "flights": {
+        "flight": {
+            "sheduledTime": "7-6-2017 12:05:07",
+            "destinationAirport": {
+                "code": "LBPD",
+                "name": "Plovdiv Airport"
+            },
+            "flightType": "Departures",
+            "plane": {
+                "manufacturer": "Boeing",
+                "model": {
+                    "name": "747",
+                    "seats": "200"
+                },
+                "planePassport": {
+                    "registrationNumber": "BG12345SL",
+                    "yearOfRegistration": "2000",
+                    "state": "Good condition"
+                },
+                "airline": "Bulgaria Air",
+                "terminal": "T1"
+            }
+        }
+    }
+}

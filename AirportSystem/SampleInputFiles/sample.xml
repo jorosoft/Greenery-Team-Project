@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flights>
+    <flight>
+        <sheduledTime>5-6-2017 16:05:07</sheduledTime>
+        <destinationAirport>
+            <code>LBWN</code>
+            <name>Varna Airport</name>
+        </destinationAirport>
+        <flightType>Arrivals</flightType>
+        <plane>
+            <manufacturer>Airbus</manufacturer>
+            <model>
+                <name>A320</name>
+                <seats>180</seats>
+            </model>
+            <planePassport>
+                <registrationNumber>BG22345SL</registrationNumber>
+                <yearOfRegistration>1994</yearOfRegistration>
+                <state>Perfect condition</state>
+            </planePassport>
+            <airline>Bulgaria Air</airline>
+            <terminal>T2</terminal>
+        </plane>
+    </flight>
+</flights>  
