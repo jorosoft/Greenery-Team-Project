@@ -12,6 +12,8 @@ namespace AirportSystem.Data
         
         public virtual IDbSet<Plane> Planes { get; set; }
 
+        public virtual IDbSet<PlanePassport> PlanePassports { get; set; }
+
         public virtual IDbSet<Airline> Airlines { get; set; }
 
         public virtual IDbSet<Airport> Airports { get; set; }

@@ -11,7 +11,7 @@ namespace AirportSystem.Models
         [Required]
         public DateTime SheduledTime { get; set; }
 
-        public DateTime ActualTime { get; set; }              
+        public DateTime? ActualTime { get; set; }              
 
         [Required]
         public int DestinationAirportId { get; set; }

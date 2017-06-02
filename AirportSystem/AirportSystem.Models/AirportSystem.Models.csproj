@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IFlightType.cs" />
+    <Compile Include="Contracts\IPlanePassport.cs" />
+    <Compile Include="Contracts\ITerminal.cs" />
     <Compile Include="FlightType.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Airline.cs" />
@@ -63,7 +65,9 @@
     <Compile Include="Flight.cs" />
     <Compile Include="Manufacturer.cs" />
     <Compile Include="Model.cs" />
+    <Compile Include="PlanePassport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Terminal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

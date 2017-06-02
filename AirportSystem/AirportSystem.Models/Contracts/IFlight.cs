@@ -8,7 +8,7 @@ namespace AirportSystem.Models.Contracts
 
         DateTime SheduledTime { get; set; }
 
-        DateTime ActualTime { get; set; }
+        DateTime? ActualTime { get; set; }
 
         int FlightTypeId { get; set; }
 
