@@ -17,7 +17,7 @@ namespace AirportSystem.Models
         public string RegistrationNumber { get; set; }
 
         [Required]
-        public DateTime YearOfRegistration { get; set; }
+        public int YearOfRegistration { get; set; }
 
         public string State { get; set; }
 

@@ -52,6 +52,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AirportSystemModelsTests\AirlineTests\IdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\AirlineTests\NameProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\AirportTests\CodeProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\AirportTests\IdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\AirportTests\NameProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\FlightTests\ActualTimeProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\FlightTests\DestinationAirportIdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\FlightTests\FlightTypeIdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\FlightTests\IdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\FlightTests\PlaneIdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\FlightTests\ScheduledTimeProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\FlightTypeTests\IdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\FlightTypeTests\NameProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\ManufacturerTests\IdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\ManufacturerTests\NameProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\ModelTests\IdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\ModelTests\NameProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\ModelTests\SeatsProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\PlanePassportTests\RegistrationNumberPropertyShould.cs" />
+    <Compile Include="AirportSystemModelsTests\PlanePassportTests\StateProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\PlanePassportTests\YearOfRegistrationProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\PlanePassportTests\PlaneIdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\PlaneTests\AirlineIdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\PlaneTests\IdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\PlaneTests\ManufacturerIdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\PlaneTests\ModelIdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\TerminalTests\IdProperty_Should.cs" />
+    <Compile Include="AirportSystemModelsTests\TerminalTests\NameProperty_Should.cs" />
     <Compile Include="AirportSystemTests\ConvertersTests\XmlDeserializerTests\Deserialize_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +99,7 @@
       <Name>AirportSystem</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -8,7 +8,7 @@ namespace AirportSystem.Models.Contracts
 
         string RegistrationNumber { get; set; }
 
-        DateTime YearOfRegistration { get; set; }
+        int YearOfRegistration { get; set; }
 
         string State { get; set; }
     }
