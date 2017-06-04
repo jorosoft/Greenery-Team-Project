@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <flights>
     <flight>
         <sheduledTime>5-6-2017 16:05:07</sheduledTime>
@@ -6,9 +6,13 @@
             <code>LBWN</code>
             <name>Varna Airport</name>
         </destinationAirport>
-        <flightType>Arrivals</flightType>
+        <flightType>
+            <name>Arrivals</name>
+        </flightType>
         <plane>
-            <manufacturer>Airbus</manufacturer>
+            <manufacturer>
+                <name>Airbus</name>
+            </manufacturer>
             <model>
                 <name>A320</name>
                 <seats>180</seats>
@@ -18,8 +22,38 @@
                 <yearOfRegistration>1994</yearOfRegistration>
                 <state>Perfect condition</state>
             </planePassport>
-            <airline>Bulgaria Air</airline>
+            <airline>
+                <name>Bulgaria Air</name>
+            </airline>
             <terminal>T2</terminal>
+        </plane>
+    </flight>
+    <flight>
+        <sheduledTime>5-6-2017 18:15:07</sheduledTime>
+        <destinationAirport>
+            <code>LBSF</code>
+            <name>Sofia Airport</name>
+        </destinationAirport>
+        <flightType>
+            <name>Departures</name>
+        </flightType>
+        <plane>
+            <manufacturer>
+                <name>Boeing</name>
+            </manufacturer>
+            <model>
+                <name>747</name>
+                <seats>200</seats>
+            </model>
+            <planePassport>
+                <registrationNumber>BG77777SL</registrationNumber>
+                <yearOfRegistration>2001</yearOfRegistration>
+                <state>Average condition</state>
+            </planePassport>
+            <airline>
+                <name>Colombia Air</name>
+            </airline>
+            <terminal>T5</terminal>
         </plane>
     </flight>
 </flights>  

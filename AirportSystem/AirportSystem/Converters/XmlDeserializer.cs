@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using AirportSystem.Contracts;
+using AirportSystem.Models;
 using AirportSystem.Models.Contracts;
+
 
 namespace AirportSystem.Converters
 {
@@ -13,8 +17,13 @@ namespace AirportSystem.Converters
             {
                 throw new ArgumentNullException("No input file name is given!");
             }
+            
+            var serializer = new XmlSerializer(typeof(FlightCollection), new XmlRootAttribute("flights"));
+            var reader = new StreamReader(filePath);
+            var result = (FlightCollection)serializer.Deserialize(reader);
+            reader.Close();
 
-            throw new NotImplementedException();
+            return result.Flights;
         }
     }
 }

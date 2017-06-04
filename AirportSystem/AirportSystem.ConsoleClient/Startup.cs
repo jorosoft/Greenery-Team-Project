@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using AirportSystem.Data;
 using AirportSystem.Data.Migrations;
+using AirportSystem.Converters;
 
 namespace AirportSystem.ConsoleClient
 {
@@ -21,6 +22,10 @@ namespace AirportSystem.ConsoleClient
                     Console.WriteLine(e.Name);
                 }
             }
+
+            // Test XML Deserializer
+            var ser = new XmlDeserializer();
+            var flights = ser.Deserialize("../../../SampleInputFiles/sample.xml");
         }
     }
 }

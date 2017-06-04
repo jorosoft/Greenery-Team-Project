@@ -6,9 +6,9 @@
                 "code": "LBPD",
                 "name": "Plovdiv Airport"
             },
-            "flightType": "Departures",
+            "flightType": { "name": "Departures" },
             "plane": {
-                "manufacturer": "Boeing",
+                "manufacturer": { "name": "Boeing" },
                 "model": {
                     "name": "747",
                     "seats": "200"
@@ -18,7 +18,7 @@
                     "yearOfRegistration": "2000",
                     "state": "Good condition"
                 },
-                "airline": "Bulgaria Air",
+                "airline": { "name": "Bulgaria Air" },
                 "terminal": "T1"
             }
         }

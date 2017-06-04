@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using AirportSystem.Models.Contracts;
 
 namespace AirportSystem.Models
 {
+    [Serializable()]
     public class Terminal : ITerminal
     {
         public int Id { get; set; }
@@ -15,6 +18,6 @@ namespace AirportSystem.Models
         [Index(IsUnique = true)]
         public string Name { get; set; }
 
-        public virtual ICollection<Airline> Airlines { get; set; }
+        public virtual HashSet<Airline> Airlines { get; set; }
     }
 }
