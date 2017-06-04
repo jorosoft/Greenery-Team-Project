@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <flights>
     <flight>
-        <sheduledTime>5-6-2017 16:05:07</sheduledTime>
+        <sheduledTime>2017-06-06T17:34:08.0039447-05:00</sheduledTime>
         <destinationAirport>
             <code>LBWN</code>
             <name>Varna Airport</name>
@@ -29,7 +29,7 @@
         </plane>
     </flight>
     <flight>
-        <sheduledTime>5-6-2017 18:15:07</sheduledTime>
+        <sheduledTime>2017-06-07T13:34:08.0039447-05:00</sheduledTime>
         <destinationAirport>
             <code>LBSF</code>
             <name>Sofia Airport</name>

@@ -12,6 +12,7 @@ namespace AirportSystem.Models
         public int Id { get; set; }
 
         [Required]        
+        [XmlElement("sheduledTime")]
         public DateTime SheduledTime { get; set; }
 
         public DateTime? ActualTime { get; set; }              
