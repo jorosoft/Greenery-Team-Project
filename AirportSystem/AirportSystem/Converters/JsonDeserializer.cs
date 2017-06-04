@@ -7,7 +7,7 @@ namespace AirportSystem.Converters
 {
     public class JsonDeserializer : IDeserializer
     {
-        public IEnumerable<IFlight> Deserialize(string filePath)
+        public IEnumerable<IFlightDTO> Deserialize(string filePath)
         {
             throw new NotImplementedException();
         }

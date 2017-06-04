@@ -2,25 +2,17 @@
     "flights": {
         "flight": {
             "sheduledTime": "2017-06-07T20:34:08.0039447-05:00",
-            "destinationAirport": {
-                "code": "LBPD",
-                "name": "Plovdiv Airport"
-            },
-            "flightType": { "name": "Departures" },
-            "plane": {
-                "manufacturer": { "name": "Boeing" },
-                "model": {
-                    "name": "747",
-                    "seats": "200"
-                },
-                "planePassport": {
-                    "registrationNumber": "BG12345SL",
-                    "yearOfRegistration": "2000",
-                    "state": "Good condition"
-                },
-                "airline": { "name": "Bulgaria Air" },
-                "terminal": "T1"
-            }
+            "airportCode": "LBPD",
+            "airportName": "Plovdiv Airport",
+            "flightType": "Departures",
+            "planeManufacturer": "Boeing",
+            "planeModel": "747",
+            "planeSeats": "200",
+            "planeRegistrationNumber": "BG12345SL",
+            "planeYearOfRegistration": "2000",
+            "planeState": "Good condition",
+            "airline": "Bulgaria Air",
+            "terminal": "T1"
         }
     }
 }

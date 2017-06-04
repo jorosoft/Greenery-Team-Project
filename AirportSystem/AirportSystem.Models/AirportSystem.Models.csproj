@@ -49,10 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IFlightDTO.cs" />
     <Compile Include="Contracts\IFlightType.cs" />
     <Compile Include="Contracts\IPlanePassport.cs" />
     <Compile Include="Contracts\ITerminal.cs" />
-    <Compile Include="FlightCollection.cs" />
+    <Compile Include="DTO\FlightCollection.cs" />
+    <Compile Include="DTO\FlightDTO.cs" />
     <Compile Include="FlightType.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Airline.cs" />

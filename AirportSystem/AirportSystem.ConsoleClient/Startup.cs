@@ -26,6 +26,22 @@ namespace AirportSystem.ConsoleClient
             // Test XML Deserializer
             var ser = new XmlDeserializer();
             var flights = ser.Deserialize("../../../SampleInputFiles/sample.xml");
+            foreach (var flight in flights)
+            {
+                Console.WriteLine("{0} - {1} - {2} - {3} - {4} - {5} - {6} - {7} - {8} - {9} - {10} - {11}", 
+                    flight.SheduledTime,
+                    flight.DestinationAirportCode,
+                    flight.DestinationAirportName,
+                    flight.Airline,
+                    flight.FlightType,
+                    flight.PlaneManufacturer,
+                    flight.PlaneModel,
+                    flight.PlaneRegistrationNumber,
+                    flight.PlaneSeats,
+                    flight.PlaneYearOfRegistration,
+                    flight.PlaneState,
+                    flight.Terminal);
+            }            
         }
     }
 }

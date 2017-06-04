@@ -5,6 +5,6 @@ namespace AirportSystem.Contracts
 {
     public interface IDeserializer
     {
-        IEnumerable<IFlight> Deserialize(string filePath);
+        IEnumerable<IFlightDTO> Deserialize(string filePath);
     }
 }

@@ -1,59 +1,31 @@
 <?xml version="1.0"?>
 <flights>
     <flight>
-        <sheduledTime>2017-06-06T17:34:08.0039447-05:00</sheduledTime>
-        <destinationAirport>
-            <code>LBWN</code>
-            <name>Varna Airport</name>
-        </destinationAirport>
-        <flightType>
-            <name>Arrivals</name>
-        </flightType>
-        <plane>
-            <manufacturer>
-                <name>Airbus</name>
-            </manufacturer>
-            <model>
-                <name>A320</name>
-                <seats>180</seats>
-            </model>
-            <planePassport>
-                <registrationNumber>BG22345SL</registrationNumber>
-                <yearOfRegistration>1994</yearOfRegistration>
-                <state>Perfect condition</state>
-            </planePassport>
-            <airline>
-                <name>Bulgaria Air</name>
-            </airline>
-            <terminal>T2</terminal>
-        </plane>
+        <sheduledTime>2017-06-06T17:34:08.0039447-05:00</sheduledTime>        
+        <airportCode>LBWN</airportCode>
+        <airportName>Varna Airport</airportName>        
+        <flightType>Arrivals</flightType>
+        <planeManufacturer>Airbus</planeManufacturer>
+        <planeModel>A320</planeModel>
+        <planeSeats>180</planeSeats>
+        <planeRegistrationNumber>BG22345SL</planeRegistrationNumber>
+        <planeYearOfRegistration>1994</planeYearOfRegistration>
+        <planeState>Perfect condition</planeState>
+        <airline>Bulgaria Air</airline>
+        <terminal>T2</terminal>        
     </flight>
     <flight>
         <sheduledTime>2017-06-07T13:34:08.0039447-05:00</sheduledTime>
-        <destinationAirport>
-            <code>LBSF</code>
-            <name>Sofia Airport</name>
-        </destinationAirport>
-        <flightType>
-            <name>Departures</name>
-        </flightType>
-        <plane>
-            <manufacturer>
-                <name>Boeing</name>
-            </manufacturer>
-            <model>
-                <name>747</name>
-                <seats>200</seats>
-            </model>
-            <planePassport>
-                <registrationNumber>BG77777SL</registrationNumber>
-                <yearOfRegistration>2001</yearOfRegistration>
-                <state>Average condition</state>
-            </planePassport>
-            <airline>
-                <name>Colombia Air</name>
-            </airline>
-            <terminal>T5</terminal>
-        </plane>
+        <airportCode>LBSF</airportCode>
+        <airportName>Sofia Airport</airportName>        
+        <flightType>Departures</flightType>
+        <planeManufacturer>Boeing</planeManufacturer>
+        <planeModel>747</planeModel>
+        <planeSeats>200</planeSeats>
+        <planeRegistrationNumber>BG77777SL</planeRegistrationNumber>
+        <planeYearOfRegistration>2001</planeYearOfRegistration>
+        <planeState>Average condition</planeState>
+        <airline>Colombia Air</airline>
+        <terminal>T5</terminal>        
     </flight>
 </flights>  

@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 using AirportSystem.Contracts;
-using AirportSystem.Models;
 using AirportSystem.Models.Contracts;
-
+using AirportSystem.Models.DTO;
 
 namespace AirportSystem.Converters
 {
     public class XmlDeserializer : IDeserializer
     {
-        public IEnumerable<IFlight> Deserialize(string filePath)
+        public IEnumerable<IFlightDTO> Deserialize(string filePath)
         {
             if (filePath == null)
             {
