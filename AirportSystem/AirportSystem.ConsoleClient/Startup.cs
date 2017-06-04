@@ -23,9 +23,15 @@ namespace AirportSystem.ConsoleClient
                 }
             }
 
-            // Test XML Deserializer
-            var ser = new XmlDeserializer();
-            var flights = ser.Deserialize("../../../SampleInputFiles/sample.xml");
+            // Test Deserializers
+            var xmlSer = new XmlDeserializer();
+            var jsonSer = new JsonDeserializer();
+            var excelSer = new ExcelDeserializer();
+
+            //var flights = xmlSer.Deserialize("../../../SampleInputFiles/sample.xml");
+            var flights = jsonSer.Deserialize("../../../SampleInputFiles/sample.json");
+            //var flights = excelSer.Deserialize("../../../SampleInputFiles/sample.xlsx");
+
             foreach (var flight in flights)
             {
                 Console.WriteLine("{0} - {1} - {2} - {3} - {4} - {5} - {6} - {7} - {8} - {9} - {10} - {11}", 
