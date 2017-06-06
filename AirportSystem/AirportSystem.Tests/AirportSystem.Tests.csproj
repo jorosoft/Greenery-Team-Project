@@ -77,7 +77,6 @@
     <Compile Include="AirportSystemModelsTests\PlaneTests\AirlineIdProperty_Should.cs" />
     <Compile Include="AirportSystemModelsTests\PlaneTests\IdProperty_Should.cs" />
     <Compile Include="AirportSystemModelsTests\PlaneTests\ManufacturerIdProperty_Should.cs" />
-    <Compile Include="AirportSystemModelsTests\PlaneTests\ModelIdProperty_Should.cs" />
     <Compile Include="AirportSystemModelsTests\TerminalTests\IdProperty_Should.cs" />
     <Compile Include="AirportSystemModelsTests\TerminalTests\NameProperty_Should.cs" />
     <Compile Include="AirportSystemTests\ConvertersTests\XmlDeserializerTests\Deserialize_Should.cs" />

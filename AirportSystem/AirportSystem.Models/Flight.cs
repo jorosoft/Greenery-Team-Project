@@ -23,10 +23,15 @@ namespace AirportSystem.Models
         [Required]
         public int PlaneId { get; set; }
 
+        [Required]
+        public int TerminalId { get; set; }
+
         public virtual Airport DestinationAirport { get; set; }
 
         public virtual FlightType FlightType { get; set; }
 
         public virtual Plane Plane { get; set; }
+
+        public virtual Terminal Terminal { get; set; }
     }
 }

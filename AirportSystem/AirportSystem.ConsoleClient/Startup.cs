@@ -12,7 +12,7 @@ namespace AirportSystem.ConsoleClient
         internal static void Main()
         {
             // Test connection to SQL Server
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AirportSystemDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AirportSystemDbContext, ConfigurationMSSql>());
             using (AirportSystemDbContext db = new AirportSystemDbContext())
             {
                 db.Database.CreateIfNotExists();

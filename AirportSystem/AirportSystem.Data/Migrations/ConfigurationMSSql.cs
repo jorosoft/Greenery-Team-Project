@@ -6,9 +6,9 @@ namespace AirportSystem.Data.Migrations
     using System.Linq;
     using Models;
     
-    public sealed class Configuration : DbMigrationsConfiguration<AirportSystem.Data.AirportSystemDbContext>
+    public sealed class ConfigurationMSSql : DbMigrationsConfiguration<AirportSystem.Data.AirportSystemDbContext>
     {
-        public Configuration()
+        public ConfigurationMSSql()
         {
             this.AutomaticMigrationsEnabled = true;
             this.AutomaticMigrationDataLossAllowed = true;

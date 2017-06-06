@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="AirportSystemDbContext.cs" />
     <Compile Include="Contracts\IRepository.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ConfigurationMSSql.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
