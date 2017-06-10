@@ -10,9 +10,7 @@ namespace AirportSystem.Contracts.Data
         IRepository<IAirline> Airlines { get; }
 
         IRepository<IFlight> Flights { get; }
-
-        IRepository<IFlightType> FlightTypes { get; }
-
+        
         IRepository<IManufacturer> Manufacturers { get; }
 
         IRepository<IModel> Models { get; }

@@ -19,7 +19,21 @@ namespace AirportSystem.Data.Repositories
 
         public int Add(IModel entity)
         {
-            throw new NotImplementedException();
+            int id = 0;
+
+            var found = context.Set<Model>().FirstOrDefault(x => x.Name == entity.Name);
+            if (found == null)
+            {
+                context.Set<Model>().Add((Model)entity);
+                context.SaveChanges();
+                id = entity.Id;
+            }
+            else
+            {
+                id = found.Id;
+            }
+
+            return id;
         }
 
         public IEnumerable<IModel> GetAll()

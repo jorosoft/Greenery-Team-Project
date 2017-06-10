@@ -19,7 +19,21 @@ namespace AirportSystem.Data.Repositories
 
         public int Add(IPlanePassport entity)
         {
-            throw new NotImplementedException();
+            int id = 0;
+
+            var found = context.Set<PlanePassport>().FirstOrDefault(x => x.PlaneId == entity.PlaneId);
+            if (found == null)
+            {
+                context.Set<PlanePassport>().Add((PlanePassport)entity);
+                context.SaveChanges();
+                id = entity.PlaneId;
+            }
+            else
+            {
+                id = found.PlaneId;
+            }
+
+            return id;
         }
 
         public IEnumerable<IPlanePassport> GetAll()
