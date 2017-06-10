@@ -3,9 +3,9 @@ using AirportSystem.Models;
 
 namespace AirportSystem.Data
 {
-    public class AirportSystemDbContext : DbContext
+    public class AirportSystemMsSqlDbContext : DbContext
     {
-        public AirportSystemDbContext()
+        public AirportSystemMsSqlDbContext()
             : base("AirportSystemDB")
         {
         }

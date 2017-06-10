@@ -56,7 +56,6 @@
     <Compile Include="DTO\FlightCollection.cs" />
     <Compile Include="DTO\FlightDTO.cs" />
     <Compile Include="FlightType.cs" />
-    <Compile Include="IPlane.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Airline.cs" />
     <Compile Include="Airport.cs" />

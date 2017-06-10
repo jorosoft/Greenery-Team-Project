@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using AirportSystem.Contracts.Data;
+using AirportSystem.Contracts.Data.Repositories;
 using AirportSystem.Contracts.MainDll;
 using AirportSystem.Contracts.Models;
+
 
 namespace AirportSystem
 {
     public class ScheduleUpdater : IScheduleUpdater
     {
-        private readonly IRepository repository;
+        private readonly IAirportSystemMsSqlData msSqlData;
 
-        public ScheduleUpdater(IRepository repository)
-        {            
-            this.repository = repository;
+        public ScheduleUpdater(IAirportSystemMsSqlData msSqlData)
+        {
+            this.msSqlData = msSqlData;
         }
 
         public void UpdateScheduleFromFile(string filePath, IDeserializer deserializer)

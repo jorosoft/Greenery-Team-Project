@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\IAirportSystemMsSqlData.cs" />
+    <Compile Include="Data\IAirportSystemPSqlData.cs" />
+    <Compile Include="Data\IAirportSystemSqliteData.cs" />
     <Compile Include="MainDll\IDeserializer.cs" />
     <Compile Include="MainDll\IScheduleUpdater.cs" />
-    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\Repositories\IRepository.cs" />
     <Compile Include="Models\IAirline.cs" />
     <Compile Include="Models\IAirport.cs" />
     <Compile Include="Models\IFlight.cs" />

@@ -12,8 +12,8 @@ namespace AirportSystem.ConsoleClient
         internal static void Main()
         {
             // Test connection to SQL Server
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AirportSystemDbContext, ConfigurationMSSql>());
-            using (AirportSystemDbContext db = new AirportSystemDbContext())
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AirportSystemMsSqlDbContext, ConfigurationMSSql>());
+            using (AirportSystemMsSqlDbContext db = new AirportSystemMsSqlDbContext())
             {
                 db.Database.CreateIfNotExists();
 
@@ -47,7 +47,26 @@ namespace AirportSystem.ConsoleClient
                     flight.PlaneYearOfRegistration,
                     flight.PlaneState,
                     flight.Terminal);
-            }            
+            }
+
+            // Test repository
+
+            var data = new AirportSystemMsSqlData(new AirportSystemMsSqlDbContext());
+
+            Console.WriteLine();
+            Console.WriteLine("Airports:");
+            Console.WriteLine("==========");
+            foreach (var entity in data.Airports.GetAll())
+            {
+                Console.WriteLine("{0} - {1}", entity.Code, entity.Name);
+            }
+
+            Console.WriteLine("Airlines:");
+            Console.WriteLine("==========");
+            foreach (var entity in data.Airlines.GetAll())
+            {
+                Console.WriteLine("{0}", entity.Name);
+            }
         }
     }
 }

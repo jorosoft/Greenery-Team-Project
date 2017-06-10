@@ -6,7 +6,7 @@ namespace AirportSystem.Data.Migrations
     using System.Linq;
     using Models;
 
-    public sealed class ConfigurationMSSql : DbMigrationsConfiguration<AirportSystem.Data.AirportSystemDbContext>
+    public sealed class ConfigurationMSSql : DbMigrationsConfiguration<AirportSystemMsSqlDbContext>
     {
         public ConfigurationMSSql()
         {
@@ -14,7 +14,7 @@ namespace AirportSystem.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(AirportSystem.Data.AirportSystemDbContext context)
+        protected override void Seed(AirportSystem.Data.AirportSystemMsSqlDbContext context)
         {
             ////  This method will be called after migrating to the latest version.
 
