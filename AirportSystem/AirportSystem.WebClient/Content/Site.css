@@ -22,3 +22,16 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.site-nav {
+    background-color: #88B04B;
+}
+
+.site-nav ul a {
+    color: blanchedalmond !important;
+}
+
+.navbar-brand {
+    color: lavender !important;
+}
+
