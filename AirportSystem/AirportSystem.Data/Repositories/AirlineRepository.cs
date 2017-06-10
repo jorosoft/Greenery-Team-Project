@@ -26,9 +26,12 @@ namespace AirportSystem.Data.Repositories
             {
                 context.Set<Airline>().Add((Airline)entity);
                 context.SaveChanges();
+                id = entity.Id;
             }
-
-            id = context.Set<Airline>().FirstOrDefault(x => x.Name == entity.Name).Id;
+            else
+            {
+                id = found.Id;
+            }
 
             return id;
         }
