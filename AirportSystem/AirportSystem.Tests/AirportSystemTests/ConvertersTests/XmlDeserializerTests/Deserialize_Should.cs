@@ -1,7 +1,7 @@
-﻿using Moq;
-using NUnit.Framework;
-using System;
+﻿using System;
 using AirportSystem.Converters;
+using Moq;
+using NUnit.Framework;
 
 namespace AirportSystem.Tests.AirportSystemTests.ConvertersTests.XmlDeserializerTests
 {

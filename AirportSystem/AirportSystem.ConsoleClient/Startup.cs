@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
+using AirportSystem.Converters;
 using AirportSystem.Data;
 using AirportSystem.Data.Migrations;
-using AirportSystem.Converters;
 
 namespace AirportSystem.ConsoleClient
 {
@@ -28,8 +28,8 @@ namespace AirportSystem.ConsoleClient
             var jsonSer = new JsonDeserializer();
             var excelSer = new ExcelDeserializer();
 
-            //var flights = xmlSer.Deserialize("../../../SampleInputFiles/sample.xml");
-            //var flights = jsonSer.Deserialize("../../../SampleInputFiles/sample.json");
+            // var flights = xmlSer.Deserialize("../../../SampleInputFiles/sample.xml");
+            // var flights = jsonSer.Deserialize("../../../SampleInputFiles/sample.json");
             var flights = excelSer.Deserialize("../../../SampleInputFiles/sample.xlsx");
 
             foreach (var flight in flights)

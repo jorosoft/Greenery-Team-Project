@@ -4,7 +4,7 @@ using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models
 {
-    public class PlanePassport :IPlanePassport
+    public class PlanePassport : IPlanePassport
     {
         [Key, ForeignKey("Plane")]
         public int PlaneId { get; set; }

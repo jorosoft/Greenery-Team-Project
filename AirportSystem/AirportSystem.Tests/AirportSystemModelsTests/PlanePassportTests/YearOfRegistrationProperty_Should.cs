@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using AirportSystem.Models;
+﻿using AirportSystem.Models;
+using NUnit.Framework;
 
 namespace AirportSystem.Tests.AirportSystemModelsTests.PlanePassportTests
 {

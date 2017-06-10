@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using AirportSystem.Models.DTO;
 using AirportSystem.Contracts.MainDll;
 using AirportSystem.Contracts.Models;
+using AirportSystem.Models.DTO;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 
@@ -18,7 +18,7 @@ namespace AirportSystem.Converters
                 throw new ArgumentNullException("No input file name is given!");
             }
 
-            var dataSheet = GetDataSheet(filePath);
+            var dataSheet = this.GetDataSheet(filePath);
             List<IFlightDTO> readData = new List<IFlightDTO>();
 
             for (int row = 1; row <= dataSheet.LastRowNum; row++)
@@ -33,7 +33,7 @@ namespace AirportSystem.Converters
 
                 try
                 {
-                    flightData = GetFlightDataFromRow(flightDataRow);
+                    flightData = this.GetFlightDataFromRow(flightDataRow);
                 }
                 catch (FormatException)
                 {

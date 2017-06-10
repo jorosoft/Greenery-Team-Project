@@ -1,7 +1,6 @@
-﻿using AirportSystem.Contracts.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-
+using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models
 {

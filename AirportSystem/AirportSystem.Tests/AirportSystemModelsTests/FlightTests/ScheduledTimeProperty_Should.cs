@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using AirportSystem.Models;
+using NUnit.Framework;
 
 namespace AirportSystem.Tests.AirportSystemModelsTests.FlightTests
 {

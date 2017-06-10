@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Xml.Serialization;
 using AirportSystem.Contracts.Models;
+using Newtonsoft.Json;
 
 namespace AirportSystem.Models.DTO
 {
-    [Serializable()]
+    [Serializable]
     public class FlightDTO : IFlightDTO
     {
         [XmlElement("sheduledTime")]

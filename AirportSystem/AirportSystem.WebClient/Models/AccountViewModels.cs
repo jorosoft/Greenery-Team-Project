@@ -18,8 +18,11 @@ namespace AirportSystem.WebClient.Models
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
+
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+
         public string ReturnUrl { get; set; }
+
         public bool RememberMe { get; set; }
     }
 
@@ -31,8 +34,9 @@ namespace AirportSystem.WebClient.Models
         [Required]
         [Display(Name = "Code")]
         public string Code { get; set; }
-        public string ReturnUrl { get; set; }
 
+        public string ReturnUrl { get; set; }
+        
         [Display(Name = "Remember this browser?")]
         public bool RememberBrowser { get; set; }
 

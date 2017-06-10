@@ -1,11 +1,11 @@
 ﻿using System;
+using AirportSystem.WebClient.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using AirportSystem.WebClient.Models;
 
 namespace AirportSystem.WebClient
 {
