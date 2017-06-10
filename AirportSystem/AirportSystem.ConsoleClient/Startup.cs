@@ -29,8 +29,8 @@ namespace AirportSystem.ConsoleClient
             var excelSer = new ExcelDeserializer();
 
             //var flights = xmlSer.Deserialize("../../../SampleInputFiles/sample.xml");
-            var flights = jsonSer.Deserialize("../../../SampleInputFiles/sample.json");
-            //var flights = excelSer.Deserialize("../../../SampleInputFiles/sample.xlsx");
+            //var flights = jsonSer.Deserialize("../../../SampleInputFiles/sample.json");
+            var flights = excelSer.Deserialize("../../../SampleInputFiles/sample.xlsx");
 
             foreach (var flight in flights)
             {
