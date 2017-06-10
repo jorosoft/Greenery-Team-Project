@@ -5,6 +5,7 @@ using System.Linq;
 using AirportSystem.Contracts.Data.Repositories;
 using AirportSystem.Contracts.Models;
 using AirportSystem.Models;
+using AirportSystem.Data.Repositories.Methods;
 
 namespace AirportSystem.Data.Repositories
 {
@@ -21,29 +22,30 @@ namespace AirportSystem.Data.Repositories
         {
             int id = 0;
 
-            var found = context.Set<Flight>().FirstOrDefault(x => x.Id == entity.Id);
-            if (found == null)
-            {
-                context.Set<Flight>().Add((Flight)entity);
-                context.SaveChanges();
-                id = entity.Id;
-            }
-            else
-            {
-                id = found.Id;
-            }
+            var found = context.Set<Flight>().FirstOrDefault(
+                 x => DbFunctions.DiffYears(x.SheduledTime, entity.SheduledTime) == 0 &&
+                     DbFunctions.DiffMonths(x.SheduledTime, entity.SheduledTime) == 0 &&
+                     DbFunctions.DiffDays(x.SheduledTime, entity.SheduledTime) == 0 &&
+                     DbFunctions.DiffHours(x.SheduledTime, entity.SheduledTime) == 0 &&
+                     DbFunctions.DiffMinutes(x.SheduledTime, entity.SheduledTime) == 0 &&
+                     x.DestinationAirportId == entity.DestinationAirportId &&
+                     x.FlightTypeId == entity.FlightTypeId);
 
             return id;
         }
 
         public IEnumerable<IFlight> GetAll()
         {
-            return this.context.Set<Flight>().ToList();
+            return RepositoryMethods.GetAll<Flight>(this.context);
         }
 
         public IFlight GetById(int id)
         {
-            throw new NotImplementedException();
+            var allElements = RepositoryMethods.GetAll<Flight>(this.context);
+
+            var flight = RepositoryMethods.GetById<Flight>(id, allElements);
+
+            return flight;
         }
 
         public void Update(IFlight entity)

@@ -4,7 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using AirportSystem.Contracts.Data.Repositories;
 using AirportSystem.Contracts.Models;
+using AirportSystem.Data.Repositories.Methods;
 using AirportSystem.Models;
+
 
 namespace AirportSystem.Data.Repositories
 {
@@ -38,12 +40,16 @@ namespace AirportSystem.Data.Repositories
 
         public IEnumerable<IFlightType> GetAll()
         {
-            return this.context.Set<FlightType>().ToList();
+            return RepositoryMethods.GetAll<FlightType>(this.context);
         }
 
         public IFlightType GetById(int id)
         {
-            throw new NotImplementedException();
+            var allElements = RepositoryMethods.GetAll<FlightType>(this.context);
+
+            var flightType = RepositoryMethods.GetById<FlightType>(id, allElements);
+
+            return flightType;
         }
 
         public void Update(IFlightType entity)

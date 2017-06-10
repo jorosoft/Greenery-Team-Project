@@ -5,7 +5,7 @@ using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models
 {
-    public class FlightType : IFlightType
+    public class FlightType : IFlightType, IBaseModel
     {
         public int Id { get; set; }
 

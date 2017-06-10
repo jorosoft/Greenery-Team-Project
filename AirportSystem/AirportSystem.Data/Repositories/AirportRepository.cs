@@ -5,12 +5,14 @@ using System.Linq;
 using AirportSystem.Contracts.Data.Repositories;
 using AirportSystem.Contracts.Models;
 using AirportSystem.Models;
+using AirportSystem.Data.Repositories.Methods;
 
 namespace AirportSystem.Data.Repositories
 {
     public class AirportRepository : IRepository<IAirport>
     {
         private readonly DbContext context;
+
         public AirportRepository(DbContext context)
         {
             this.context = context;
@@ -37,12 +39,16 @@ namespace AirportSystem.Data.Repositories
 
         public IEnumerable<IAirport> GetAll()
         {
-            return this.context.Set<Airport>().ToList();
+            return RepositoryMethods.GetAll<Airport>(this.context);
         }
 
         public IAirport GetById(int id)
         {
-            throw new NotImplementedException();
+            var allElements = RepositoryMethods.GetAll<Airport>(this.context);
+
+            var airport = RepositoryMethods.GetById<Airport>(id, allElements);
+
+            return airport;
         }
 
         public void Update(IAirport entity)

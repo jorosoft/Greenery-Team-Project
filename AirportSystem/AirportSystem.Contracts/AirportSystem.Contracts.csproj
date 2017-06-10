@@ -48,6 +48,7 @@
     <Compile Include="Data\Repositories\IRepository.cs" />
     <Compile Include="Models\IAirline.cs" />
     <Compile Include="Models\IAirport.cs" />
+    <Compile Include="Models\IBaseModel.cs" />
     <Compile Include="Models\IFlight.cs" />
     <Compile Include="Models\IFlightDTO.cs" />
     <Compile Include="Models\IFlightType.cs" />

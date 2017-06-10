@@ -4,7 +4,7 @@ using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models
 {
-    public class Model : IModel
+    public class Model : IModel, IBaseModel
     {
         public int Id { get; set; }
 

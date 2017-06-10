@@ -5,7 +5,7 @@ using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models
 {
-    public class Airport : IAirport
+    public class Airport : IAirport, IBaseModel
     {
         public int Id { get; set; }
 

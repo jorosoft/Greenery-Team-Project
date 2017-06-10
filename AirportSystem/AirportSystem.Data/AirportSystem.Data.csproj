@@ -62,6 +62,7 @@
     <Compile Include="Repositories\FlightRepository.cs" />
     <Compile Include="Repositories\FlightTypeRepository.cs" />
     <Compile Include="Repositories\ManufacturerRepository.cs" />
+    <Compile Include="Repositories\Methods\RepositoryMethods.cs" />
     <Compile Include="Repositories\ModelRepository.cs" />
     <Compile Include="Repositories\PlanePassportRepository.cs" />
     <Compile Include="Repositories\PlaneRepository.cs" />

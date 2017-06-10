@@ -5,6 +5,7 @@ using System.Linq;
 using AirportSystem.Contracts.Data.Repositories;
 using AirportSystem.Contracts.Models;
 using AirportSystem.Models;
+using AirportSystem.Data.Repositories.Methods;
 
 namespace AirportSystem.Data.Repositories
 {
@@ -38,12 +39,16 @@ namespace AirportSystem.Data.Repositories
 
         public IEnumerable<ITerminal> GetAll()
         {
-            return this.context.Set<Terminal>().ToList();
+            return RepositoryMethods.GetAll<Terminal>(this.context);
         }
 
         public ITerminal GetById(int id)
         {
-            throw new NotImplementedException();
+            var allElements = RepositoryMethods.GetAll<Terminal>(this.context);
+
+            var terminal = RepositoryMethods.GetById<Terminal>(id, allElements);
+
+            return terminal;
         }
 
         public void Update(ITerminal entity)
