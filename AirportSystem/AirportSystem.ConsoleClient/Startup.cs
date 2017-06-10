@@ -3,6 +3,7 @@ using System.Data.Entity;
 using AirportSystem.Converters;
 using AirportSystem.Data;
 using AirportSystem.Data.Migrations;
+using AirportSystem.Models;
 
 namespace AirportSystem.ConsoleClient
 {
@@ -53,9 +54,27 @@ namespace AirportSystem.ConsoleClient
 
             var data = new AirportSystemMsSqlData(new AirportSystemMsSqlDbContext());
 
+            data.Airports.Add(new Airport
+            {
+                Code = "LBWN",
+                Name = "Varna Airport"
+            });
+
+            data.Airports.Add(new Airport
+            {
+                Code = "LBSF",
+                Name = "Sofia Airport"
+            });
+
+            data.Airlines.Add(new Airline
+            {
+                Name = "Bongo Air"
+            });
+
             Console.WriteLine();
             Console.WriteLine("Airports:");
             Console.WriteLine("==========");
+            
             foreach (var entity in data.Airports.GetAll())
             {
                 Console.WriteLine("{0} - {1}", entity.Code, entity.Name);
