@@ -10,7 +10,7 @@ namespace AirportSystem.Models
         public int Id { get; set; }
 
         [Required]
-        [MinLength(3)]
+        [MinLength(1)]
         [MaxLength(15)]
         [Index(IsUnique = true)]
         public string Name { get; set; }

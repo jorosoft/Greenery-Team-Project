@@ -22,6 +22,8 @@ namespace AirportSystem.Data
 
         public IRepository<IFlight> Flights => new FlightRepository(context);
 
+        public IRepository<IFlightType> FlightTypes => new FlightTypeRepository(context);
+
         public IRepository<IManufacturer> Manufacturers => new ManufacturerRepository(context);
 
         public IRepository<IModel> Models => new ModelRepository(context);

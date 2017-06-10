@@ -86,6 +86,12 @@ namespace AirportSystem.ConsoleClient
             {
                 Console.WriteLine("{0}", entity.Name);
             }
+
+            // Test shedule updater
+            var su = new ScheduleUpdater(data);
+            su.UpdateScheduleFromFile("../../../SampleInputFiles/sample.xlsx", excelSer);
+            Console.WriteLine();
+            Console.WriteLine("FLIGHTS ADDDED!!!");
         }
     }
 }
