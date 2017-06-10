@@ -79,6 +79,8 @@
     <Compile Include="AirportSystemModelsTests\PlaneTests\ManufacturerIdProperty_Should.cs" />
     <Compile Include="AirportSystemModelsTests\TerminalTests\IdProperty_Should.cs" />
     <Compile Include="AirportSystemModelsTests\TerminalTests\NameProperty_Should.cs" />
+    <Compile Include="AirportSystemTests\ConvertersTests\ExcelDeserializerTests\Deserialize_Should.cs" />
+    <Compile Include="AirportSystemTests\ConvertersTests\jsonDeserializerTests\Deserialize_Should.cs" />
     <Compile Include="AirportSystemTests\ConvertersTests\XmlDeserializerTests\Deserialize_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

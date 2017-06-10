@@ -1,18 +1,22 @@
-﻿using System;
-using AirportSystem.Converters;
+﻿using AirportSystem.Converters;
 using Moq;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AirportSystem.Tests.AirportSystemTests.ConvertersTests.XmlDeserializerTests
+namespace AirportSystem.Tests.AirportSystemTests.ConvertersTests.ExcelDeserializerTests
 {
     [TestFixture]
-    public class Deserialize_Should
+    class Deserialize_Should
     {
         [Test]
         public void ThrowArgumentNullExceptionWithPropperMessage_WhenNullValueIsPassed()
         {
             // Arrange
-            var sut = new Mock<XmlDeserializer>().Object;
+            var sut = new Mock<ExcelDeserializer>().Object;
             var expectedMessage = "No input file";
 
             // Act & Assert            
