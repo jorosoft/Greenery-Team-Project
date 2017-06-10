@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using AirportSystem.Contracts;
-using AirportSystem.Models.Contracts;
 using AirportSystem.Models.DTO;
+using AirportSystem.Contracts.MainDll;
+using AirportSystem.Contracts.Models;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 

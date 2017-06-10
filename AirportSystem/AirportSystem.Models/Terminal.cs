@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
-using AirportSystem.Models.Contracts;
+using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models
-{    
+{
     public class Terminal : ITerminal
     {
         public int Id { get; set; }

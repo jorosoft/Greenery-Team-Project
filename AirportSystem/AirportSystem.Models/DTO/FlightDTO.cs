@@ -1,8 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Xml.Serialization;
-using AirportSystem.Models.Contracts;
-
+using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models.DTO
 {

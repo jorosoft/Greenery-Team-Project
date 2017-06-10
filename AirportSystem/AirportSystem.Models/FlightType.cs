@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using AirportSystem.Contracts.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using AirportSystem.Models.Contracts;
 
 namespace AirportSystem.Models
-{   
+{
     public class FlightType : IFlightType
     {
         public int Id { get; set; }

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using AirportSystem.Contracts;
-using AirportSystem.Models.Contracts;
+using AirportSystem.Contracts.MainDll;
+using AirportSystem.Contracts.Models;
 using AirportSystem.Models.DTO;
 
 namespace AirportSystem.Converters

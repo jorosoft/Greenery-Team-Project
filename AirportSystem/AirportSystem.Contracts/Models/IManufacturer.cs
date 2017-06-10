@@ -1,6 +1,6 @@
-﻿namespace AirportSystem.Models.Contracts
+﻿namespace AirportSystem.Contracts.Models
 {
-    public interface ITerminal
+    public interface IManufacturer
     {
         int Id { get; set; }
 

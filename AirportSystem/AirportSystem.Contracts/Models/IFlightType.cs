@@ -1,4 +1,4 @@
-﻿namespace AirportSystem.Models.Contracts
+﻿namespace AirportSystem.Contracts.Models
 {
     public interface IFlightType
     {

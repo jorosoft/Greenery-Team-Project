@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using AirportSystem.Models.Contracts;
 
 namespace AirportSystem.Models
-{    
+{
     public class Plane : IPlane
     {
         public int Id { get; set; }

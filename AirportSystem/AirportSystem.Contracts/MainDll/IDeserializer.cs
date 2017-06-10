@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using AirportSystem.Models.Contracts;
+using AirportSystem.Contracts.Models;
 
-namespace AirportSystem.Contracts
+namespace AirportSystem.Contracts.MainDll
 {
     public interface IDeserializer
     {

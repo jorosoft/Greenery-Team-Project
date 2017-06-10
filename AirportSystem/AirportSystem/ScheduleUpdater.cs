@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using AirportSystem.Contracts;
-using AirportSystem.Models.Contracts;
-using AirportSystem.Data.Contracts;
+using AirportSystem.Contracts.MainDll;
+using AirportSystem.Contracts.Data;
+using AirportSystem.Contracts.Models;
 
 namespace AirportSystem
 {

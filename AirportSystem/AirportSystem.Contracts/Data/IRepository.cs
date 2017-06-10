@@ -1,4 +1,4 @@
-﻿namespace AirportSystem.Data.Contracts
+﻿namespace AirportSystem.Contracts.Data
 {
     public interface IRepository
     {
