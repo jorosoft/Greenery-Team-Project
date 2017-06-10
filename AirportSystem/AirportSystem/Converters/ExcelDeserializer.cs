@@ -24,13 +24,21 @@ namespace AirportSystem.Converters
             for (int row = 1; row <= dataSheet.LastRowNum; row++)
             {
                 var flightDataRow = dataSheet.GetRow(row);
+                FlightDTO flightData;
 
                 if (flightDataRow == null)
                 {
-                    throw new ArgumentNullException($"Wrong excel data at row {row}!");
+                    throw new ArgumentNullException($"Cell/s without data at row {row}!");
                 }
 
-                var flightData = GetFlightDataFromRow(flightDataRow);
+                try
+                {
+                    flightData = GetFlightDataFromRow(flightDataRow);
+                }
+                catch (FormatException)
+                {
+                    throw new FormatException($"Wrong data at row {row}!");
+                }
 
                 readData.Add(flightData);
             }
