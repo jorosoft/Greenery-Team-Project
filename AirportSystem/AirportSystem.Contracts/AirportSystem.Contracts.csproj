@@ -43,7 +43,6 @@
     <Compile Include="Data\IAirportSystemMsSqlData.cs" />
     <Compile Include="Data\IAirportSystemPSqlData.cs" />
     <Compile Include="Data\IAirportSystemSqliteData.cs" />
-    <Compile Include="Data\Repositories\IExtendedRepository.cs" />
     <Compile Include="MainDll\IDeserializer.cs" />
     <Compile Include="MainDll\IScheduleUpdater.cs" />
     <Compile Include="Data\Repositories\IRepository.cs" />

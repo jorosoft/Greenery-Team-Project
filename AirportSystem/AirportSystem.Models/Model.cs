@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using AirportSystem.Contracts.Models;
 
@@ -16,9 +17,6 @@ namespace AirportSystem.Models
 
         public int Seats { get; set; }
 
-        [Required]
-        public int ManufacturerId { get; set; }
-
-        public virtual Manufacturer Manufacturer { get; set; }
+        public virtual ICollection<Plane> Planes { get; set; }
     }
 }

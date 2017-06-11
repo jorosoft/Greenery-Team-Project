@@ -31,7 +31,7 @@ namespace AirportSystem
                 int airlineId = msSqlData.Airlines.Add(new Airline { Name = flight.Airline });
                 int airportId = msSqlData.Airports.Add(new Airport { Name = flight.DestinationAirportName, Code = flight.DestinationAirportCode });
                 int manufacturerId = msSqlData.Manufacturers.Add(new Manufacturer { Name = flight.PlaneManufacturer });
-                int modelId = msSqlData.Models.Add(new Model { Name = flight.PlaneModel, Seats = flight.PlaneSeats, ManufacturerId = manufacturerId });
+                int modelId = msSqlData.Models.Add(new Model { Name = flight.PlaneModel, Seats = flight.PlaneSeats });
                 int planeId = msSqlData.Planes.Add(new Plane
                 {
                     PlanePass = new PlanePassport
@@ -41,6 +41,7 @@ namespace AirportSystem
                         State = flight.PlaneState
                     },
                     ManufacturerId = manufacturerId,
+                    ModelId = modelId,
                     AirlineId = airlineId
                 });
                 int terminalId = msSqlData.Terminals.Add(new Terminal { Name = flight.Terminal });

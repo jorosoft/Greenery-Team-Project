@@ -15,5 +15,7 @@ namespace AirportSystem.Contracts.Models
         int DestinationAirportId { get; set; }
 
         int PlaneId { get; set; }
+
+        int TerminalId { get; set; }
     }
 }

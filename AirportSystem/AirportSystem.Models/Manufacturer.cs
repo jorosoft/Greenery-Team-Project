@@ -16,7 +16,5 @@ namespace AirportSystem.Models
         public string Name { get; set; }
 
         public virtual ICollection<Plane> Planes { get; set; }
-
-        public virtual ICollection<Model> Models { get; set; }
     }
 }

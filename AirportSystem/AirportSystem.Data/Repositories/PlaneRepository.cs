@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using AirportSystem.Contracts.Data.Repositories;
 using AirportSystem.Contracts.Models;
-using AirportSystem.Models;
 using AirportSystem.Data.Repositories.Methods;
+using AirportSystem.Models;
 
 namespace AirportSystem.Data.Repositories
 {
@@ -39,18 +40,14 @@ namespace AirportSystem.Data.Repositories
             return id;
         }
 
-        public IEnumerable<IPlane> GetAll()
+        public IEnumerable<IPlane> GetAll(Expression<Func<IPlane, bool>> filter)
         {
+            if (filter != null)
+            {
+                return this.context.Set<Plane>().Where(filter).ToList();
+            }
+
             return RepositoryMethods.GetAll<Plane>(this.context);
-        }
-
-        public IPlane GetById(int id)
-        {
-            var allElements = RepositoryMethods.GetAll<Plane>(this.context);
-
-            var plane = RepositoryMethods.GetById<Plane>(id, allElements);
-
-            return plane;
         }
 
         public void Update(IPlane entity)

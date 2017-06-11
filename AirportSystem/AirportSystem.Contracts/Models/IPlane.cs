@@ -6,6 +6,8 @@
 
         int ManufacturerId { get; set; }
 
+        int ModelId { get; set; }
+
         int AirlineId { get; set; }
 
         IPlanePassport PlanePass { get; set; }

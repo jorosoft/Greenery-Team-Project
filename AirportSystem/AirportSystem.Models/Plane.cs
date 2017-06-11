@@ -13,13 +13,18 @@ namespace AirportSystem.Models
         public int ManufacturerId { get; set; }
 
         [Required]
+        public int ModelId { get; set; }
+
+        [Required]
         public int AirlineId { get; set; }
 
         [NotMapped]
         public IPlanePassport PlanePass { get; set; }
 
-        public virtual Manufacturer Manufacturers { get; set; }        
-              
+        public virtual Manufacturer Manufacturers { get; set; }
+
+        public virtual Model Models { get; set; }
+
         public virtual Airline Airlines { get; set; }
         
         public virtual PlanePassport PlanePassport { get; set; }
