@@ -22,16 +22,18 @@ namespace AirportSystem.Data.Repositories
         {
             int id = 0;
 
-            var found = context.Set<Plane>().FirstOrDefault(x => x.Id == entity.Id);
+            var found = context.Set<PlanePassport>().FirstOrDefault(x => x.RegistrationNumber == entity.PlanePass.RegistrationNumber);
             if (found == null)
             {
-                context.Set<Plane>().Add((Plane)entity);
+                var plane = (Plane)entity;
+                plane.PlanePassport = (PlanePassport)entity.PlanePass;
+                context.Set<Plane>().Add(plane);
                 context.SaveChanges();
                 id = entity.Id;
             }
             else
             {
-                id = found.Id;
+                id = found.PlaneId;
             }
 
             return id;

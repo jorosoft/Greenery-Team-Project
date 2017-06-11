@@ -18,9 +18,7 @@ namespace AirportSystem.Contracts.Data
         IRepository<IModel> Models { get; }
 
         IRepository<IPlane> Planes { get; }
-
-        IRepository<IPlanePassport> PlanePassports { get; }
-
+        
         IRepository<ITerminal> Terminals { get; }
     }
 }

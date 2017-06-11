@@ -29,44 +29,30 @@ namespace AirportSystem.ConsoleClient
             var jsonSer = new JsonDeserializer();
             var excelSer = new ExcelDeserializer();
 
-            // var flights = xmlSer.Deserialize("../../../SampleInputFiles/sample.xml");
-            // var flights = jsonSer.Deserialize("../../../SampleInputFiles/sample.json");
-            var flights = excelSer.Deserialize("../../../SampleInputFiles/sample.xlsx");
-
-            foreach (var flight in flights)
-            {
-                Console.WriteLine("{0} - {1} - {2} - {3} - {4} - {5} - {6} - {7} - {8} - {9} - {10} - {11}", 
-                    flight.SheduledTime,
-                    flight.DestinationAirportCode,
-                    flight.DestinationAirportName,
-                    flight.Airline,
-                    flight.FlightType,
-                    flight.PlaneManufacturer,
-                    flight.PlaneModel,
-                    flight.PlaneRegistrationNumber,
-                    flight.PlaneSeats,
-                    flight.PlaneYearOfRegistration,
-                    flight.PlaneState,
-                    flight.Terminal);
-            }
+            var xmlPath = "../../../SampleInputFiles/sample.xml";
+            var jsonPath = "../../../SampleInputFiles/sample.json";
+            var excelPath = "../../../SampleInputFiles/sample.xlsx";
+                        
 
             // Test repository
 
-            var data = new AirportSystemMsSqlData(new AirportSystemMsSqlDbContext());
+            var msSqlData = new AirportSystemMsSqlData(new AirportSystemMsSqlDbContext());
+            var pSqlData = new AirportSystemPSqlData(new AirportSystemPSqlDbContext());
+            var sqliteData = new AirportSystemSqliteData(new AirportSystemSqliteDbContext());
 
-            data.Airports.Add(new Airport
+            msSqlData.Airports.Add(new Airport
             {
                 Code = "LBWN",
                 Name = "Varna Airport"
             });
 
-            data.Airports.Add(new Airport
+            msSqlData.Airports.Add(new Airport
             {
                 Code = "LBSF",
                 Name = "Sofia Airport"
             });
 
-            data.Airlines.Add(new Airline
+            msSqlData.Airlines.Add(new Airline
             {
                 Name = "Bongo Air"
             });
@@ -75,23 +61,28 @@ namespace AirportSystem.ConsoleClient
             Console.WriteLine("Airports:");
             Console.WriteLine("==========");
             
-            foreach (var entity in data.Airports.GetAll())
+            foreach (var entity in msSqlData.Airports.GetAll())
             {
                 Console.WriteLine("{0} - {1}", entity.Code, entity.Name);
             }
 
             Console.WriteLine("Airlines:");
             Console.WriteLine("==========");
-            foreach (var entity in data.Airlines.GetAll())
+            foreach (var entity in msSqlData.Airlines.GetAll())
             {
                 Console.WriteLine("{0}", entity.Name);
             }
 
             // Test shedule updater
-            var su = new ScheduleUpdater(data);
-            su.UpdateScheduleFromFile("../../../SampleInputFiles/sample.xlsx", excelSer);
-            Console.WriteLine();
-            Console.WriteLine("FLIGHTS ADDDED!!!");
+            var su = new ScheduleUpdater(msSqlData, pSqlData, sqliteData);
+            int countAdded = 0;
+            countAdded = su.UpdateScheduleFromFile(xmlPath, xmlSer);
+            Console.WriteLine("{0} FLIGHTS ADDDED!!!", countAdded);
+            countAdded = su.UpdateScheduleFromFile(jsonPath, jsonSer);
+            Console.WriteLine("{0} FLIGHTS ADDDED!!!", countAdded);
+            countAdded = su.UpdateScheduleFromFile(excelPath, excelSer);
+            Console.WriteLine("{0} FLIGHTS ADDDED!!!", countAdded);
+            Console.WriteLine();            
         }
     }
 }

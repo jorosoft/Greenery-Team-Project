@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models
@@ -13,7 +14,10 @@ namespace AirportSystem.Models
 
         [Required]
         public int AirlineId { get; set; }
-        
+
+        [NotMapped]
+        public IPlanePassport PlanePass { get; set; }
+
         public virtual Manufacturer Manufacturers { get; set; }        
               
         public virtual Airline Airlines { get; set; }

@@ -1,14 +1,11 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.Models
 {
-    public class PlanePassport : IPlanePassport, IBaseModel
+    public class PlanePassport : IPlanePassport
     {
-        public int Id { get; set; }
-
         [Key, ForeignKey("Plane")]
         public int PlaneId { get; set; }
 

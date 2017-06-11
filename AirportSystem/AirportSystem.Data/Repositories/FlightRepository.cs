@@ -31,6 +31,17 @@ namespace AirportSystem.Data.Repositories
                      x.DestinationAirportId == entity.DestinationAirportId &&
                      x.FlightTypeId == entity.FlightTypeId);
 
+            if (found == null)
+            {
+                context.Set<Flight>().Add((Flight)entity);
+                context.SaveChanges();
+                id = entity.Id;
+            }
+            else
+            {
+                id = found.Id;
+            }
+
             return id;
         }
 

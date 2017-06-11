@@ -10,15 +10,20 @@ namespace AirportSystem
     public class ScheduleUpdater : IScheduleUpdater
     {
         private readonly IAirportSystemMsSqlData msSqlData;
+        private readonly IAirportSystemPSqlData pSqlData;
+        private readonly IAirportSystemSqliteData sqliteData;
 
-        public ScheduleUpdater(IAirportSystemMsSqlData msSqlData)
+        public ScheduleUpdater(IAirportSystemMsSqlData msSqlData, IAirportSystemPSqlData pSqlData, IAirportSystemSqliteData sqliteData)
         {
             this.msSqlData = msSqlData;
+            this.pSqlData = pSqlData;
+            this.sqliteData = sqliteData;
         }
 
-        public void UpdateScheduleFromFile(string filePath, IDeserializer deserializer)
+        public int UpdateScheduleFromFile(string filePath, IDeserializer deserializer)
         {
             var flights = deserializer.Deserialize(filePath);
+            int counter = 0;
 
             foreach (var flight in flights)
             {
@@ -27,14 +32,17 @@ namespace AirportSystem
                 int airportId = msSqlData.Airports.Add(new Airport { Name = flight.DestinationAirportName, Code = flight.DestinationAirportCode });
                 int manufacturerId = msSqlData.Manufacturers.Add(new Manufacturer { Name = flight.PlaneManufacturer });
                 int modelId = msSqlData.Models.Add(new Model { Name = flight.PlaneModel, Seats = flight.PlaneSeats, ManufacturerId = manufacturerId });
-                int planeId = msSqlData.Planes.Add(new Plane { ManufacturerId = manufacturerId, AirlineId = airlineId });
-                //int planePassportId = msSqlData.PlanePassports.Add(new PlanePassport
-                //{
-                //    PlaneId = planeId,
-                //    RegistrationNumber = flight.PlaneRegistrationNumber,
-                //    YearOfRegistration = flight.PlaneYearOfRegistration,
-                //    State = flight.PlaneState
-                //});
+                int planeId = msSqlData.Planes.Add(new Plane
+                {
+                    PlanePass = new PlanePassport
+                    {
+                        RegistrationNumber = flight.PlaneRegistrationNumber,
+                        YearOfRegistration = flight.PlaneYearOfRegistration,
+                        State = flight.PlaneState
+                    },
+                    ManufacturerId = manufacturerId,
+                    AirlineId = airlineId
+                });
                 int terminalId = msSqlData.Terminals.Add(new Terminal { Name = flight.Terminal });
                 msSqlData.Flights.Add(new Flight
                 {
@@ -44,7 +52,11 @@ namespace AirportSystem
                     PlaneId = planeId,
                     TerminalId = terminalId
                 });
+
+                counter++;
             }
+
+            return counter;
         }
 
         public void AddFlight(IFlight flight)

@@ -30,8 +30,6 @@ namespace AirportSystem.Data
 
         public IRepository<IPlane> Planes => new PlaneRepository(context);
 
-        public IRepository<IPlanePassport> PlanePassports=> new PlanePassportRepository(context);
-
         public IRepository<ITerminal> Terminals => new TerminalRepository(context);
     }
 }
