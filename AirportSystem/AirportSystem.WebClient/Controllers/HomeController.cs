@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AirportSystem.Contracts.Data;
 using AirportSystem.Models.DTO;
 using AirportSystem.Data;
+using AirportSystem.Models;
 
 namespace AirportSystem.WebClient.Controllers
 {
@@ -25,9 +26,54 @@ namespace AirportSystem.WebClient.Controllers
 
         public ActionResult Index()
         {
-            var flights = this.msSqlData.Flights.GetAll(null);
+            int day = DateTime.Now.Day;
+            int month = DateTime.Now.Month;
+            int year = DateTime.Now.Year;
 
-            return View(flights);
+            var flights = this.msSqlData.Flights
+                .GetAll(x => x.SheduledTime.Day == day &&
+                            x.SheduledTime.Month == month &&
+                            x.SheduledTime.Year == year);
+
+            var result = new List<Flight>();
+
+            foreach (var flight in flights)
+            {
+                result.Add((Flight)flight);
+            }
+
+            return View(result);
+        }
+
+        public ActionResult ShowFlights(string selected)
+        {
+            int day = 0;
+            int month = 0;
+            int year = 0;
+
+            if (selected != null)
+            {
+                string[] date = selected.Split('-');
+                day = int.Parse(date[0]);
+                month = int.Parse(date[1]);
+                year = int.Parse(date[2]);
+            }
+
+            var flights = this.msSqlData.Flights
+                .GetAll(x => x.SheduledTime.Day == day &&
+                            x.SheduledTime.Month == month &&
+                            x.SheduledTime.Year == year);
+
+            var result = new List<Flight>();
+
+            foreach (var flight in flights)
+            {
+                result.Add((Flight)flight);
+            }
+
+            ViewBag.selected = selected;
+
+            return View(result);
         }
 
         [Authorize]
@@ -73,7 +119,7 @@ namespace AirportSystem.WebClient.Controllers
         [Authorize]
         public ActionResult Reports()
         {
-            
+
             return View();
         }
 

@@ -11,6 +11,12 @@ namespace AirportSystem.WebClient
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+                        "~/Scripts/jquery-ui.min.js"));
+
+            bundles.Add(new StyleBundle("~/Content/cssjqryUi").Include(
+                        "~/Content/jquery-ui.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 

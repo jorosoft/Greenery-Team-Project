@@ -14,6 +14,8 @@ namespace AirportSystem.WebClient.App_Start
     using Contracts.Data;
     using Data;
     using System.Data.Entity;
+    using Contracts.Models;
+    using AirportSystem.Models;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
