@@ -21,19 +21,7 @@ namespace AirportSystem.Data.Repositories
 
         public int Add(IManufacturer entity)
         {
-            int id = 0;
-
-            var found = context.Set<Manufacturer>().FirstOrDefault(x => x.Name == entity.Name);
-            if (found == null)
-            {
-                context.Set<Manufacturer>().Add((Manufacturer)entity);
-                context.SaveChanges();
-                id = entity.Id;
-            }
-            else
-            {
-                id = found.Id;
-            }
+            int id = RepositoryMethods.Add<Manufacturer>(this.context, (Manufacturer)entity, x => x.Name == entity.Name);
 
             return id;
         }

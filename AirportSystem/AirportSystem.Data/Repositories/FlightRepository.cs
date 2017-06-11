@@ -20,28 +20,16 @@ namespace AirportSystem.Data.Repositories
         }
 
         public int Add(IFlight entity)
-        {
-            int id = 0;
-
-            var found = context.Set<Flight>().FirstOrDefault(
-                 x => DbFunctions.DiffYears(x.SheduledTime, entity.SheduledTime) == 0 &&
-                     DbFunctions.DiffMonths(x.SheduledTime, entity.SheduledTime) == 0 &&
-                     DbFunctions.DiffDays(x.SheduledTime, entity.SheduledTime) == 0 &&
-                     DbFunctions.DiffHours(x.SheduledTime, entity.SheduledTime) == 0 &&
-                     DbFunctions.DiffMinutes(x.SheduledTime, entity.SheduledTime) == 0 &&
-                     x.DestinationAirportId == entity.DestinationAirportId &&
-                     x.FlightTypeId == entity.FlightTypeId);
-
-            if (found == null)
-            {
-                context.Set<Flight>().Add((Flight)entity);
-                context.SaveChanges();
-                id = entity.Id;
-            }
-            else
-            {
-                id = found.Id;
-            }
+        {            
+            int id = RepositoryMethods.Add<Flight>(this.context,
+                                                   (Flight)entity,
+                                                   x => DbFunctions.DiffYears(x.SheduledTime, entity.SheduledTime) == 0 &&
+                                                        DbFunctions.DiffMonths(x.SheduledTime, entity.SheduledTime) == 0 &&
+                                                        DbFunctions.DiffDays(x.SheduledTime, entity.SheduledTime) == 0 &&
+                                                        DbFunctions.DiffHours(x.SheduledTime, entity.SheduledTime) == 0 &&
+                                                        DbFunctions.DiffMinutes(x.SheduledTime, entity.SheduledTime) == 0 &&
+                                                        x.DestinationAirportId == entity.DestinationAirportId &&
+                                                        x.FlightTypeId == entity.FlightTypeId);
 
             return id;
         }

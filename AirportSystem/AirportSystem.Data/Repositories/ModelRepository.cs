@@ -21,19 +21,7 @@ namespace AirportSystem.Data.Repositories
 
         public int Add(IModel entity)
         {
-            int id = 0;
-
-            var found = context.Set<Model>().FirstOrDefault(x => x.Name == entity.Name);
-            if (found == null)
-            {
-                context.Set<Model>().Add((Model)entity);
-                context.SaveChanges();
-                id = entity.Id;
-            }
-            else
-            {
-                id = found.Id;
-            }
+            int id = RepositoryMethods.Add<Model>(this.context, (Model)entity, x => x.Name == entity.Name);
 
             return id;
         }
