@@ -52,7 +52,7 @@ namespace AirportSystem.Data.Repositories
         
         public void Update(IFlightType entity)
         {
-            throw new NotImplementedException();
+            RepositoryMethods.Update<FlightType>(this.context, (FlightType)entity);
         }
     }
 }

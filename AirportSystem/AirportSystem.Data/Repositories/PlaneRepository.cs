@@ -54,7 +54,7 @@ namespace AirportSystem.Data.Repositories
 
         public void Update(IPlane entity)
         {
-            throw new NotImplementedException();
+            RepositoryMethods.Update<Plane>(this.context, (Plane)entity);
         }
     }
 }

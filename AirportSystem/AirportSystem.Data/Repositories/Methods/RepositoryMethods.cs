@@ -19,9 +19,15 @@ namespace AirportSystem.Data.Repositories.Methods
         }
 
         public static void Update<T>(DbContext context,T entity)
-            where T: IBaseModel
+            where T: class, IBaseModel
         {
+            var entityToUpdate = RepositoryMethods.GetAll<T>(context)
+                                                  .Where(x => x.Id == entity.Id)
+                                                  .ToList()[0];
 
+            context.Set<T>().Remove(entityToUpdate);
+            context.Set<T>().Add(entity);
+            context.SaveChanges();            
         }
     }
 }
