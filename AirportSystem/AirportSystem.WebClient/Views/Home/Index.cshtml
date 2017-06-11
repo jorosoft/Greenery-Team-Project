@@ -1,6 +1,6 @@
-﻿@using AirportSystem.Models.DTO
+﻿@using AirportSystem.Models
 @using GridMvc.Html
-@model List<FlightDTO>
+@model List<Flight>
 
 @{
     ViewBag.Title = "Home Page";
@@ -15,12 +15,13 @@
                 <h3 class="panel-title">Arrivals</h3>
             </div>
             <div class="panel-body">                
-                @Html.Grid(Model.Where(x => x.FlightType == "Arrivals")).Columns(columns =>
+                @Html.Grid(Model.Where(x => x.FlightType.Name == "Arrivals")).Columns(columns =>
                 {
                     columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(50);                    
-                    columns.Add(f => f.DestinationAirportName).Titled("Destination").SetWidth(100);
-                    columns.Add(f => f.Airline).Titled("Airline").SetWidth(100);
-                    columns.Add(f => f.PlaneModel).Titled("Plane").SetWidth(50);
+                    columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(100);
+                    columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(100);
+                    columns.Add(f => f.Plane.Manufacturers.Name).Titled("Plane").SetWidth(50);
+                    columns.Add(f => f.Plane.Models.Name).Titled(" ").SetWidth(50);
                 }).WithPaging(10)
             </div>
         </div>
@@ -30,12 +31,13 @@
                 <h3 class="panel-title">Departures</h3>
             </div>
             <div class="panel-body">
-                @Html.Grid(Model.Where(x => x.FlightType == "Departures")).Columns(columns =>
+                @Html.Grid(Model.Where(x => x.FlightType.Name == "Departures")).Columns(columns =>
                 {
                     columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(50);
-                    columns.Add(f => f.DestinationAirportName).Titled("Destination").SetWidth(100);
-                    columns.Add(f => f.Airline).Titled("Airline").SetWidth(100);
-                    columns.Add(f => f.PlaneModel).Titled("Plane").SetWidth(50);
+                    columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(100);
+                    columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(100);
+                    columns.Add(f => f.Plane.Manufacturers.Name).Titled("Plane").SetWidth(50);
+                    columns.Add(f => f.Plane.Models.Name).Titled(" ").SetWidth(50);
                 }).WithPaging(10)
             </div>
         </div>

@@ -50,10 +50,14 @@ namespace AirportSystem.Data.Repositories
         {
             if (filter != null)
             {
-                return this.context.Set<Flight>().Where(filter).ToList();
+                return this.context.Set<Flight>()
+                    .Where(filter)
+                    .OrderBy(x => x.SheduledTime)
+                    .ToList();
             }
 
             return this.context.Set<Flight>()
+                .OrderBy(x => x.SheduledTime)
                 .ToList();            
         }
        
