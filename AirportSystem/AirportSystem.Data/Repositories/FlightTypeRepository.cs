@@ -40,12 +40,14 @@ namespace AirportSystem.Data.Repositories
 
         public IEnumerable<IFlightType> GetAll(Expression<Func<IFlightType, bool>> filter)
         {
+            var allEntities = RepositoryMethods.GetAll<FlightType>(this.context); 
+
             if (filter != null)
             {
-                return this.context.Set<FlightType>().Where(filter).ToList();
+                return allEntities.Where(filter).ToList();
 
             }
-            return RepositoryMethods.GetAll<FlightType>(this.context);
+            return allEntities.ToList();
         }
         
         public void Update(IFlightType entity)

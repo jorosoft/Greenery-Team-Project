@@ -48,13 +48,14 @@ namespace AirportSystem.Data.Repositories
 
         public IEnumerable<IFlight> GetAll(Expression<Func<IFlight, bool>> filter)
         {
+            var allEntities = RepositoryMethods.GetAll<Flight>(this.context);
+
             if (filter != null)
             {
-                return this.context.Set<Flight>().Where(filter).ToList();
-            }
+                return allEntities.Where(filter).ToList();
 
-            return this.context.Set<Flight>()
-                .ToList();            
+            }
+            return allEntities.ToList();
         }
        
         public void Update(IFlight entity)
