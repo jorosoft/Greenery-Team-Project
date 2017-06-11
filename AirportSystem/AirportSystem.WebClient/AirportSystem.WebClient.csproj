@@ -284,6 +284,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Home\FlightDetails.cshtml" />
+    <Content Include="Views\Home\EditFlight.cshtml" />
+    <Content Include="Views\Home\DeleteFlight.cshtml" />
+    <Content Include="Views\Home\Reports.cshtml" />
+    <Content Include="Views\Home\EditFlightApply.cshtml" />
+    <Content Include="Views\Home\DeleteFlightApply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,7 +7,7 @@
 }
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10">
         <h1>Schedule</h1>
 
         <div class="panel panel-default">
@@ -16,15 +16,33 @@
             </div>
             <div class="panel-body">                
                 @Html.Grid(Model.Where(x => x.FlightType.Name == "Arrivals")).Columns(columns =>
-                {
-                    columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(20);                    
-                    columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(200);
-                    columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(200);
-                    columns.Add(f => f.Plane.Manufacturers.Name)
-                        .RenderValueAs(f => f.Plane.Manufacturers.Name + " " + f.Plane.Models.Name)
-                        .Titled("Plane").SetWidth(200);
-                    columns.Add(f => f.ActualTime).RenderValueAs(f => f.ActualTime != null ? "Flying" : "Landed").Titled("Status").SetWidth(100);
-                }).WithPaging(10).EmptyText("No flights for this day")
+           {
+           columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(20);
+           columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(200);
+           columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(200);
+           columns.Add(f => f.Plane.Manufacturers.Name)
+               .RenderValueAs(f => f.Plane.Manufacturers.Name + " " + f.Plane.Models.Name)
+               .Titled("Plane").SetWidth(200);
+           columns.Add().RenderValueAs(f => f.ActualTime != null ? "Landed" : "Flying").Titled("Status").SetWidth(100);
+           if (User.Identity.IsAuthenticated)
+           {
+               columns.Add()
+                .Encoded(false)
+                .Sanitized(false)
+                .SetWidth(50)
+                .RenderValueAs(f => @<div id="edit-btn">@Html.ActionLink("Details", "FlightDetails", new { id = f.Id }, new { @class = "gridbutton" })</div>);
+               columns.Add()
+                    .Encoded(false)
+                    .Sanitized(false)
+                    .SetWidth(50)
+                    .RenderValueAs(f => @<div id="edit-btn">@Html.ActionLink("Edit", "EditFlight", new { id = f.Id }, new { @class = "gridbutton" })</div>);
+               columns.Add()
+                    .Encoded(false)
+                    .Sanitized(false)
+                    .SetWidth(50)
+                    .RenderValueAs(f => @<div id="delete-btn">@Html.ActionLink("Delete", "DeleteFlight", new { id = f.Id }, new { @class = "gridbutton" })</div>);
+            }
+           }).WithPaging(10).EmptyText("No arriving flights for this day")
             </div>
         </div>
 
@@ -35,14 +53,32 @@
             <div class="panel-body">
                 @Html.Grid(Model.Where(x => x.FlightType.Name == "Departures")).Columns(columns =>
            {
-               columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(20);
-               columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(200);
-               columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(200);
-               columns.Add(f => f.Plane.Manufacturers.Name)
-                        .RenderValueAs(f => f.Plane.Manufacturers.Name + " " + f.Plane.Models.Name)
-                        .Titled("Plane").SetWidth(200);
-               columns.Add(f => f.ActualTime).RenderValueAs(f => f.ActualTime != null ? "Departed" : "On Ground").Titled("Status").SetWidth(100);
-           }).WithPaging(10).EmptyText("No flights for this day")
+           columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(20);
+           columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(200);
+           columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(200);
+           columns.Add(f => f.Plane.Manufacturers.Name)
+                    .RenderValueAs(f => f.Plane.Manufacturers.Name + " " + f.Plane.Models.Name)
+                    .Titled("Plane").SetWidth(200);
+           columns.Add().RenderValueAs(f => f.ActualTime != null ? "Departed" : "On Ground").Titled("Status").SetWidth(100);
+           if (User.Identity.IsAuthenticated)
+           {
+               columns.Add()
+                    .Encoded(false)
+                    .Sanitized(false)
+                    .SetWidth(50)
+                    .RenderValueAs(f => @<div id="edit-btn">@Html.ActionLink("Details", "FlightDetails", new { id = f.Id }, new { @class = "gridbutton" })</div>);
+               columns.Add()
+                    .Encoded(false)
+                    .Sanitized(false)
+                    .SetWidth(50)
+                    .RenderValueAs(f => @<div id="edit-btn">@Html.ActionLink("Edit", "EditFlight", new { id = f.Id }, new { @class = "gridbutton" })</div>);
+               columns.Add()
+                    .Encoded(false)
+                    .Sanitized(false)
+                    .SetWidth(50)
+                    .RenderValueAs(f => @<div id="delete-btn">@Html.ActionLink("Delete", "DeleteFlight", new { id = f.Id }, new { @class = "gridbutton" })</div>);
+               }
+           }).WithPaging(10).EmptyText("No departure flights for this day")
             </div>
         </div>
                    

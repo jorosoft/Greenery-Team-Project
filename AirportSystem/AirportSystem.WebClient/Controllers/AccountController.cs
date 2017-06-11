@@ -139,7 +139,6 @@ namespace AirportSystem.WebClient.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -148,7 +147,6 @@ namespace AirportSystem.WebClient.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -245,7 +243,6 @@ namespace AirportSystem.WebClient.Controllers
         //
         // POST: /Account/ResetPassword
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -273,8 +270,7 @@ namespace AirportSystem.WebClient.Controllers
         }
 
         //
-        // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
+        // GET: /Account/ResetPasswordConfirmation        
         public ActionResult ResetPasswordConfirmation()
         {
             return View();

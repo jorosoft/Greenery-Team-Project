@@ -1,0 +1,28 @@
+﻿@using AirportSystem.Models
+@model Flight
+
+@{
+    ViewBag.Title = "Delete Flight";
+}
+
+@using (Html.BeginForm("DeleteFlightApply", "Home", new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    <div class="row">
+        <div class="col-md-6">
+            <h1> </h1>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Delete Flight</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="flight-details-div" class="formcell">
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" class="grid-filter-btn btn-large btn-danger" value="Delete Flight" /></td>
+                        </tr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
