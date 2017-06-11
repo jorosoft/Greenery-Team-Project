@@ -7,7 +7,7 @@
 }
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <h1>Schedule</h1>
 
         <div class="panel panel-default">
@@ -17,12 +17,14 @@
             <div class="panel-body">                
                 @Html.Grid(Model.Where(x => x.FlightType.Name == "Arrivals")).Columns(columns =>
                 {
-                    columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(50);                    
-                    columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(100);
-                    columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(100);
-                    columns.Add(f => f.Plane.Manufacturers.Name).Titled("Plane").SetWidth(50);
-                    columns.Add(f => f.Plane.Models.Name).Titled(" ").SetWidth(50);
-                }).WithPaging(10)
+                    columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(20);                    
+                    columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(200);
+                    columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(200);
+                    columns.Add(f => f.Plane.Manufacturers.Name)
+                        .RenderValueAs(f => f.Plane.Manufacturers.Name + " " + f.Plane.Models.Name)
+                        .Titled("Plane").SetWidth(200);
+                    columns.Add(f => f.ActualTime).RenderValueAs(f => f.ActualTime != null ? "Flying" : "Landed").Titled("Status").SetWidth(100);
+                }).WithPaging(10).EmptyText("No flights for this day")
             </div>
         </div>
 
@@ -32,13 +34,15 @@
             </div>
             <div class="panel-body">
                 @Html.Grid(Model.Where(x => x.FlightType.Name == "Departures")).Columns(columns =>
-                {
-                    columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(50);
-                    columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(100);
-                    columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(100);
-                    columns.Add(f => f.Plane.Manufacturers.Name).Titled("Plane").SetWidth(50);
-                    columns.Add(f => f.Plane.Models.Name).Titled(" ").SetWidth(50);
-                }).WithPaging(10)
+           {
+               columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(20);
+               columns.Add(f => f.DestinationAirport.Name).Titled("Destination").SetWidth(200);
+               columns.Add(f => f.Plane.Airlines.Name).Titled("Airline").SetWidth(200);
+               columns.Add(f => f.Plane.Manufacturers.Name)
+                        .RenderValueAs(f => f.Plane.Manufacturers.Name + " " + f.Plane.Models.Name)
+                        .Titled("Plane").SetWidth(200);
+               columns.Add(f => f.ActualTime).RenderValueAs(f => f.ActualTime != null ? "Departed" : "On Ground").Titled("Status").SetWidth(100);
+           }).WithPaging(10).EmptyText("No flights for this day")
             </div>
         </div>
                    
