@@ -27,12 +27,12 @@ namespace AirportSystem
 
             foreach (var flight in flights)
             {
-                int flightTypeId = msSqlData.FlightTypes.Add(new FlightType { Name = flight.FlightType });
-                int airlineId = msSqlData.Airlines.Add(new Airline { Name = flight.Airline });
-                int airportId = msSqlData.Airports.Add(new Airport { Name = flight.DestinationAirportName, Code = flight.DestinationAirportCode });
-                int manufacturerId = msSqlData.Manufacturers.Add(new Manufacturer { Name = flight.PlaneManufacturer });
-                int modelId = msSqlData.Models.Add(new Model { Name = flight.PlaneModel, Seats = flight.PlaneSeats });
-                int planeId = msSqlData.Planes.Add(new Plane
+                int flightTypeId = this.msSqlData.FlightTypes.Add(new FlightType { Name = flight.FlightType });
+                int airlineId = this.msSqlData.Airlines.Add(new Airline { Name = flight.Airline });
+                int airportId = this.msSqlData.Airports.Add(new Airport { Name = flight.DestinationAirportName, Code = flight.DestinationAirportCode });
+                int manufacturerId = this.msSqlData.Manufacturers.Add(new Manufacturer { Name = flight.PlaneManufacturer });
+                int modelId = this.msSqlData.Models.Add(new Model { Name = flight.PlaneModel, Seats = flight.PlaneSeats });
+                int planeId = this.msSqlData.Planes.Add(new Plane
                 {
                     PlanePass = new PlanePassport
                     {
@@ -44,8 +44,8 @@ namespace AirportSystem
                     ModelId = modelId,
                     AirlineId = airlineId
                 });
-                int terminalId = msSqlData.Terminals.Add(new Terminal { Name = flight.Terminal });
-                msSqlData.Flights.Add(new Flight
+                int terminalId = this.msSqlData.Terminals.Add(new Terminal { Name = flight.Terminal });
+                this.msSqlData.Flights.Add(new Flight
                 {
                     SheduledTime = flight.SheduledTime,
                     DestinationAirportId = airportId,
