@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -7,7 +8,11 @@ using AirportSystem.Contracts.Data;
 using AirportSystem.Models.DTO;
 using AirportSystem.Data;
 using AirportSystem.Models;
-using System.IO;
+using AirportSystem;
+using AirportSystem.Converters;
+using AirportSystem.Contracts.MainDll;
+using Ninject;
+using AirportSystem.Contracts.Models;
 
 namespace AirportSystem.WebClient.Controllers
 {
@@ -16,13 +21,18 @@ namespace AirportSystem.WebClient.Controllers
         private readonly IAirportSystemMsSqlData msSqlData;
         private readonly IAirportSystemPSqlData pSqlData;
         private readonly IAirportSystemSqliteData sqliteData;
+        private readonly IScheduleUpdater scheduleUpdater;
 
-        public HomeController(IAirportSystemMsSqlData msSqlData, IAirportSystemPSqlData pSqlData, IAirportSystemSqliteData sqliteData)
-
+        public HomeController(
+            IAirportSystemMsSqlData msSqlData,
+            IAirportSystemPSqlData pSqlData,
+            IAirportSystemSqliteData sqliteData,
+            IScheduleUpdater scheduleUpdater)
         {
             this.msSqlData = msSqlData;
             this.pSqlData = pSqlData;
             this.sqliteData = sqliteData;
+            this.scheduleUpdater = scheduleUpdater;
         }
 
         public ActionResult Index(string selected = null)
@@ -61,14 +71,14 @@ namespace AirportSystem.WebClient.Controllers
             }
 
             ViewBag.selected = selectedDate;
-            
+
             return View(result);
         }
 
         [Authorize]
         public ActionResult FlightDetails(int id)
         {
-            var flight = msSqlData.Flights.GetAll(x => x.Id == id).FirstOrDefault();
+            var flight = this.msSqlData.Flights.GetAll(x => x.Id == id).FirstOrDefault();
 
             return View(flight);
         }
@@ -76,13 +86,14 @@ namespace AirportSystem.WebClient.Controllers
         [Authorize]
         public ActionResult AddFlight()
         {
-            
             return View();
         }
 
         [Authorize]
-        public ActionResult AddFlightApply()
+        public ActionResult AddFlightApply(Flight flight)
         {
+            this.scheduleUpdater.AddFlight(flight);
+
             Response.AddHeader("REFRESH", "1;URL=Index");
 
             return View();
@@ -91,14 +102,15 @@ namespace AirportSystem.WebClient.Controllers
         [Authorize]
         public ActionResult EditFlight(int id)
         {
-            var flight = msSqlData.Flights.GetAll(x => x.Id == id).FirstOrDefault();
+            var flight = this.msSqlData.Flights.GetAll(x => x.Id == id).FirstOrDefault();
 
             return View(flight);
         }
 
         [Authorize]
-        public ActionResult EditFlightApply()
+        public ActionResult EditFlightApply(Flight flight)
         {
+            this.scheduleUpdater.UpdateFlight(flight);
 
             Response.AddHeader("REFRESH", "1;URL=Index");
 
@@ -111,20 +123,21 @@ namespace AirportSystem.WebClient.Controllers
             var flight = msSqlData.Flights.GetAll(x => x.Id == id).FirstOrDefault();
 
             return View(flight);
-        }        
+        }
 
         [Authorize]
-        public ActionResult DeleteFlightApply()
+        public ActionResult DeleteFlightApply(Flight flight)
         {
+            this.msSqlData.Flights.Delete(flight);
 
             Response.AddHeader("REFRESH", "1;URL=Index");
+
             return View();
         }
 
         [Authorize]
         public ActionResult UploadFlights()
         {
-
             return View();
         }
 
@@ -132,14 +145,44 @@ namespace AirportSystem.WebClient.Controllers
         [HttpPost]
         public ActionResult UploadFlightsApply()
         {
+            const string xmlContentType = "text/xml";
+            const string jsonContentType = "application/octet-stream";
+            const string excelContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
             if (Request.Files.Count > 0)
             {
                 var file = Request.Files[0];
+                var fileName = Path.GetFileName(file.FileName);
+                var fileExtension = Path.GetExtension(file.FileName);
+
                 if (file != null && file.ContentLength > 0)
                 {
-                    var filename = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/App_Data/"), filename);
+                    bool isSupportedFile = (file.ContentType == xmlContentType && fileExtension.ToLower() == ".xml") ||
+                                        (file.ContentType == jsonContentType && fileExtension.ToLower() == ".json") ||
+                                        (file.ContentType == excelContentType && fileExtension.ToLower() == ".xlsx");
+
+                    if (!isSupportedFile)
+                    {
+                        return RedirectToAction("Error", new { message = "Not supported file type!" });
+                    }
+
+                    var path = Path.Combine(Server.MapPath("~/App_Data/"), fileName);
                     file.SaveAs(path);
+
+                    switch (file.ContentType)
+                    {
+                        case xmlContentType:
+                            this.scheduleUpdater.UpdateScheduleFromFile(path, new XmlDeserializer());
+                            break;
+                        case jsonContentType:
+                            this.scheduleUpdater.UpdateScheduleFromFile(path, new JsonDeserializer());
+                            break;
+                        case excelContentType:
+                            this.scheduleUpdater.UpdateScheduleFromFile(path, new ExcelDeserializer());
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
 
@@ -151,6 +194,15 @@ namespace AirportSystem.WebClient.Controllers
         [Authorize]
         public ActionResult Reports()
         {
+
+            return View();
+        }
+
+        public ActionResult Error(string message)
+        {
+            ViewBag.message = message;
+
+            Response.AddHeader("REFRESH", "1;URL=Index");
 
             return View();
         }

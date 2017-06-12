@@ -22,6 +22,9 @@
                                 <div id="editproductnumberdiv" class="formcell">
                                     <table>
                                         <tr>
+                                            <td>@Html.HiddenFor(m => m.Id)</td>
+                                        </tr>
+                                        <tr>
                                             <td>@Html.Label("SheduledTime", "Time")</td>
                                             <td>@Html.TextBoxFor(m => m.SheduledTime)</td>
                                         </tr>

@@ -12,6 +12,8 @@ namespace AirportSystem.Contracts.Data.Repositories
 
         int Add(T entity);
 
-        void Update(T entity);          
+        void Update(T entity);
+
+        void Delete(T entity);      
     }
 }

@@ -8,6 +8,6 @@ namespace AirportSystem.Contracts.MainDll
 
         void AddFlight(IFlight flight);
 
-        void UpdateFlight(int flightId);
+        void UpdateFlight(IFlight flight);
     }
 }

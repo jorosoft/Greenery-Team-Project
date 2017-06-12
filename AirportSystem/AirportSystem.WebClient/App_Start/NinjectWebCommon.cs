@@ -16,6 +16,8 @@ namespace AirportSystem.WebClient.App_Start
     using System.Data.Entity;
     using Contracts.Models;
     using AirportSystem.Models;
+    using Contracts.MainDll;
+    using Converters;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -69,7 +71,14 @@ namespace AirportSystem.WebClient.App_Start
             kernel.Bind<IAirportSystemMsSqlData>().To<AirportSystemMsSqlData>();
             kernel.Bind<IAirportSystemPSqlData>().To<AirportSystemPSqlData>();
             kernel.Bind<IAirportSystemSqliteData>().To<AirportSystemSqliteData>();
+
             kernel.Bind<DbContext>().To<AirportSystemMsSqlDbContext>();
-        }        
+
+            kernel.Bind<IScheduleUpdater>().To<ScheduleUpdater>();
+            //kernel.Bind<IDeserializer>().To<XmlDeserializer>().Named("XML");
+            //kernel.Bind<IDeserializer>().To<JsonDeserializer>().Named("JSON");
+            //kernel.Bind<IDeserializer>().To<ExcelDeserializer>().Named("EXCEL");
+
+        }
     }
 }

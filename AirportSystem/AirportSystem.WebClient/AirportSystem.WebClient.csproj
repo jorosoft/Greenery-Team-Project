@@ -338,6 +338,7 @@
     <Content Include="Views\Home\AddFlightApply.cshtml" />
     <Content Include="Views\Home\UploadFlights.cshtml" />
     <Content Include="Views\Home\UploadFlightsApply.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -361,6 +362,10 @@
     <ProjectReference Include="..\AirportSystem.Models\AirportSystem.Models.csproj">
       <Project>{A5286E04-4028-48A0-8985-D395EC6B220D}</Project>
       <Name>AirportSystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AirportSystem\AirportSystem.csproj">
+      <Project>{2E2DA455-145F-4B83-BD8B-B5768C706599}</Project>
+      <Name>AirportSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

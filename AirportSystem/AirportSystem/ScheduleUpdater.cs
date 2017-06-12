@@ -65,7 +65,7 @@ namespace AirportSystem
             throw new NotImplementedException();
         }
 
-        public void UpdateFlight(int flightId)
+        public void UpdateFlight(IFlight flight)
         {
             throw new NotImplementedException();
         }

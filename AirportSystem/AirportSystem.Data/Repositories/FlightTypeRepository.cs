@@ -52,5 +52,10 @@ namespace AirportSystem.Data.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public void Delete(IFlightType entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
