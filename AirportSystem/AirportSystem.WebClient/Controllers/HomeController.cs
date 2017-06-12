@@ -7,6 +7,7 @@ using AirportSystem.Contracts.Data;
 using AirportSystem.Models.DTO;
 using AirportSystem.Data;
 using AirportSystem.Models;
+using System.IO;
 
 namespace AirportSystem.WebClient.Controllers
 {
@@ -24,32 +25,12 @@ namespace AirportSystem.WebClient.Controllers
             this.sqliteData = sqliteData;
         }
 
-        public ActionResult Index()
-        {
-            int day = DateTime.Now.Day;
-            int month = DateTime.Now.Month;
-            int year = DateTime.Now.Year;
-
-            var flights = this.msSqlData.Flights
-                .GetAll(x => x.SheduledTime.Day == day &&
-                            x.SheduledTime.Month == month &&
-                            x.SheduledTime.Year == year);
-
-            var result = new List<Flight>();
-
-            foreach (var flight in flights)
-            {
-                result.Add((Flight)flight);
-            }
-
-            return View(result);
-        }
-
-        public ActionResult ShowFlights(string selected)
+        public ActionResult Index(string selected = null)
         {
             int day = 0;
             int month = 0;
             int year = 0;
+            string selectedDate;
 
             if (selected != null)
             {
@@ -57,6 +38,14 @@ namespace AirportSystem.WebClient.Controllers
                 day = int.Parse(date[0]);
                 month = int.Parse(date[1]);
                 year = int.Parse(date[2]);
+                selectedDate = selected;
+            }
+            else
+            {
+                day = DateTime.Now.Day;
+                month = DateTime.Now.Month;
+                year = DateTime.Now.Year;
+                selectedDate = $"{day}-{month}-{year}";
             }
 
             var flights = this.msSqlData.Flights
@@ -71,8 +60,8 @@ namespace AirportSystem.WebClient.Controllers
                 result.Add((Flight)flight);
             }
 
-            ViewBag.selected = selected;
-
+            ViewBag.selected = selectedDate;
+            
             return View(result);
         }
 
@@ -85,15 +74,22 @@ namespace AirportSystem.WebClient.Controllers
         }
 
         [Authorize]
-        public ActionResult EditFlight(int id)
+        public ActionResult AddFlight()
         {
-            var flight = msSqlData.Flights.GetAll(x => x.Id == id).FirstOrDefault();
-
-            return View(flight);
+            
+            return View();
         }
 
         [Authorize]
-        public ActionResult DeleteFlight(int id)
+        public ActionResult AddFlightApply()
+        {
+            Response.AddHeader("REFRESH", "1;URL=Index");
+
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult EditFlight(int id)
         {
             var flight = msSqlData.Flights.GetAll(x => x.Id == id).FirstOrDefault();
 
@@ -105,14 +101,49 @@ namespace AirportSystem.WebClient.Controllers
         {
 
             Response.AddHeader("REFRESH", "1;URL=Index");
+
             return View();
         }
+
+        [Authorize]
+        public ActionResult DeleteFlight(int id)
+        {
+            var flight = msSqlData.Flights.GetAll(x => x.Id == id).FirstOrDefault();
+
+            return View(flight);
+        }        
 
         [Authorize]
         public ActionResult DeleteFlightApply()
         {
 
             Response.AddHeader("REFRESH", "1;URL=Index");
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult UploadFlights()
+        {
+
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult UploadFlightsApply()
+        {
+            if (Request.Files.Count > 0)
+            {
+                var files = Request.Files[0];
+                if (files != null && files.ContentLength > 0)
+                {
+                    var filename = Path.GetFileName(files.FileName);
+                    var path = Path.GetFullPath(files.FileName);
+                }
+            }
+
+            Response.AddHeader("REFRESH", "1;URL=Index");
+
             return View();
         }
 

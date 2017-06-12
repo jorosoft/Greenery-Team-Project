@@ -7,7 +7,14 @@
 }
 
 <!-- Examples of creating a Datepicker -->
-@Html.TextBox("YourTextBox", "", new { @class = "date-picker" })
+@*@Html.TextBox("YourTextBox", "", new { @class = "date-picker" })*@
+
+@using (Html.BeginForm("Index", "Home", new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    <input class="date-picker" name="selected" value="@ViewBag.selected"/>
+    <input type="submit" value="Show" />
+
+}
 
 @section Scripts {
 
@@ -16,34 +23,26 @@
 
     <script type="text/javascript">
 
-     $(document).ready(function () {
-         $(".date-picker").datepicker({
-             dateFormat: "dd-mm-yy",
-             changeMonth: true,
-             changeYear: true,
-             yearRange: "-60:+0"
-         });
-     });
-
-     $(".date-picker").on("change", () => {
-         var selected = $(".date-picker").val();
-         document.location = "/Home/ShowFlights/" + selected;
-         
-     });
+        $(document).ready(function () {
+            $(".date-picker").datepicker({
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
     </script>
-}  
-  
+}
+
 <div class="row">
     <div class="col-md-10">
-        <h1>Schedule</h1>
-
-        @ViewBag.selected
+        <h1>Schedule</h1>        
 
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Arrivals</h3>
             </div>
-            <div class="panel-body">                
+            <div class="panel-body">
                 @Html.Grid(Model.Where(x => x.FlightType.Name == "Arrivals")).Columns(columns =>
            {
            columns.Add(f => f.SheduledTime.TimeOfDay).Titled("Time").SetWidth(20);
@@ -70,7 +69,7 @@
                     .Sanitized(false)
                     .SetWidth(50)
                     .RenderValueAs(f => @<div id="delete-btn">@Html.ActionLink("Delete", "DeleteFlight", new { id = f.Id }, new { @class = "gridbutton" })</div>);
-            }
+               }
            }).WithPaging(10).EmptyText("No arriving flights for this day")
             </div>
         </div>
@@ -110,6 +109,6 @@
            }).WithPaging(10).EmptyText("No departure flights for this day")
             </div>
         </div>
-                   
-    </div>    
+
+    </div>
 </div>

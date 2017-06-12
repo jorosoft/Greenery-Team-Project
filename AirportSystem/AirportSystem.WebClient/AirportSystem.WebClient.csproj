@@ -334,7 +334,10 @@
     <Content Include="Views\Home\Reports.cshtml" />
     <Content Include="Views\Home\EditFlightApply.cshtml" />
     <Content Include="Views\Home\DeleteFlightApply.cshtml" />
-    <Content Include="Views\Home\ShowFlights.cshtml" />
+    <Content Include="Views\Home\AddFlight.cshtml" />
+    <Content Include="Views\Home\AddFlightApply.cshtml" />
+    <Content Include="Views\Home\UploadFlights.cshtml" />
+    <Content Include="Views\Home\UploadFlightsApply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,6 +25,8 @@
 
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li>@Html.ActionLink("Add Flight", "AddFlight", "Home")</li>
+                        <li>@Html.ActionLink("Upload Flights", "UploadFlights", "Home")</li>
                         <li>@Html.ActionLink("Reports", "Reports", "Home")</li>
                     }
 
