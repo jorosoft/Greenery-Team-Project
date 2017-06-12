@@ -42,5 +42,10 @@ namespace AirportSystem.Data.Repositories
         {
             RepositoryMethods.Update<Airport>(this.context, (Airport)entity);
         }
+
+        public void Delete(IAirport entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
