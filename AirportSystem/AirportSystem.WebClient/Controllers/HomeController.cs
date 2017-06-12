@@ -87,6 +87,8 @@ namespace AirportSystem.WebClient.Controllers
         [Authorize]
         public ActionResult AddFlight()
         {
+            ViewBag.FlightTypes = this.msSqlData.FlightTypes.GetAll(null);
+
             return View();
         }
 
@@ -244,6 +246,16 @@ namespace AirportSystem.WebClient.Controllers
                 out warnings);
 
             return File(renderedBytes, mimeType);
+        }
+
+        [Authorize]
+        public ActionResult ReportAirlines()
+        {
+            var airlines = this.msSqlData.Airlines.GetAll(null);
+            var data = "AirlinesDataSet";
+            var file = "AirlinesReport.rdlc";
+
+            return ReportGenerator(airlines, data, file);
         }
 
         public ActionResult Error(string message)

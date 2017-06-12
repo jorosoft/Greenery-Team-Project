@@ -8,7 +8,7 @@ namespace AirportSystem.Models
     {
         public int Id { get; set; }
 
-        [Required]        
+        [Required(ErrorMessage = "Required field!")]
         public DateTime SheduledTime { get; set; }
 
         public DateTime? ActualTime { get; set; }              

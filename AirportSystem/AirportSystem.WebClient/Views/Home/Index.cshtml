@@ -9,12 +9,15 @@
 <!-- Examples of creating a Datepicker -->
 @*@Html.TextBox("YourTextBox", "", new { @class = "date-picker" })*@
 
-@using (Html.BeginForm("Index", "Home", new { ReturnUrl = ViewBag.ReturnUrl }))
-{
-    <input class="date-picker" name="selected" value="@ViewBag.selected"/>
-    <input type="submit" value="Show" />
+<div class="alert alert-warning" role="alert">
+    <h3>Schedule for</h3>
+    @using (Html.BeginForm("Index", "Home", new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        <input class="date-picker" name="selected" value="@ViewBag.selected" />
+        <input type="submit" value="Show" />
 
-}
+    }
+</div>
 
 @section Scripts {
 
@@ -35,9 +38,7 @@
 }
 
 <div class="row">
-    <div class="col-md-10">
-        <h1>Schedule</h1>        
-
+    <div class="col-md-10">  
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Arrivals</h3>

@@ -9,7 +9,7 @@ namespace AirportSystem.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required field!")]
         [MinLength(1)]
         [MaxLength(15)]
         [Index(IsUnique = true)]

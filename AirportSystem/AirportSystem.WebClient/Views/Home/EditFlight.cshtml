@@ -8,12 +8,15 @@
 <section>
     @using (Html.BeginForm("EditFlightApply", "Home", new { ReturnUrl = ViewBag.ReturnUrl }))
     {
+       @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
         <div class="row">
             <div class="col-md-6">
                 <h1> </h1>
-                <div class="panel panel-warning">
+                <div class="panel panel-success">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Edit Flight</h3>
+                        <h3 class="panel-title">Add Flight</h3>
                     </div>
                     <div class="panel-body">
                         <div id="flight-details-div" class="formcell">
@@ -27,54 +30,66 @@
                                         <tr>
                                             <td>@Html.Label("SheduledTime", "Time")</td>
                                             <td>@Html.TextBoxFor(m => m.SheduledTime)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.SheduledTime)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("FlightType.Name", "Flight Type")</td>
                                             <td>@Html.TextBoxFor(m => m.FlightType.Name)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.FlightType.Name)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("DestinationAirport", "Airport Code")</td>
                                             <td>@Html.TextBoxFor(m => m.DestinationAirport.Code)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.DestinationAirport.Code)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("DestinationAirport.Name", "Destination")</td>
                                             <td>@Html.TextBoxFor(m => m.DestinationAirport.Name)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.DestinationAirport.Name)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("Terminal.Name", "Terminal")</td>
                                             <td>@Html.TextBoxFor(m => m.Terminal.Name)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.Terminal.Name)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("Plane.Manufacturers.Name", "Plane Manufacturer")</td>
                                             <td>@Html.TextBoxFor(m => m.Plane.Manufacturers.Name)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.Plane.Manufacturers.Name)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("Plane.Models.Name", "Plane Model")</td>
                                             <td>@Html.TextBoxFor(m => m.Plane.Models.Name)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.Plane.Models.Name)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("Plane.Airlines.Name", "Airline")</td>
                                             <td>@Html.TextBoxFor(m => m.Plane.Airlines.Name)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.Plane.Airlines.Name)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("Plane.PlanePassport.RegistrationNumber", "Plane Registration")</td>
                                             <td>@Html.TextBoxFor(m => m.Plane.PlanePassport.RegistrationNumber)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.Plane.PlanePassport.RegistrationNumber)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("Plane.PlanePassport.YearOfRegistration", "Year Of Registration")</td>
                                             <td>@Html.TextBoxFor(m => m.Plane.PlanePassport.YearOfRegistration)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.Plane.PlanePassport.YearOfRegistration)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("Plane.PlanePassport.State", "Plane State")</td>
                                             <td>@Html.TextBoxFor(m => m.Plane.PlanePassport.State)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.Plane.PlanePassport.State)</td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("Plane.Models.Seats", "Plane Seats")</td>
                                             <td>@Html.TextBoxFor(m => m.Plane.Models.Seats)</td>
+                                            <td>@Html.ValidationMessageFor(m => m.Plane.Models.Seats)</td>
                                         </tr>
                                         <tr>
                                             <td></td>
-                                            <td><input type="submit" class="grid-filter-btn btn-large btn-warning" value="Edit Flight" /></td>
+                                            <td><input type="submit" class="grid-filter-btn btn-large btn-success" value="Add Flight" /></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -86,3 +101,7 @@
         </div>
     }
 </section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

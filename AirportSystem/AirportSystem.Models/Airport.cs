@@ -9,13 +9,13 @@ namespace AirportSystem.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required field!")]
         [MinLength(3)]
         [MaxLength(5)]
         [Index(IsUnique = true)]        
         public string Code { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required field!")]
         [MinLength(3)]
         [MaxLength(35)]
         [Index(IsUnique = true)]

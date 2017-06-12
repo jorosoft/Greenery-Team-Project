@@ -9,13 +9,13 @@ namespace AirportSystem.Models
         [Key, ForeignKey("Plane")]
         public int PlaneId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required field!")]
         [MinLength(3)]
         [MaxLength(15)]
         [Index(IsUnique = true)]
         public string RegistrationNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required field!")]
         public int YearOfRegistration { get; set; }
         
         public string State { get; set; }
