@@ -64,6 +64,7 @@
     <Compile Include="Repositories\ManufacturerRepository.cs" />
     <Compile Include="Repositories\Methods\RepositoryMethods.cs" />
     <Compile Include="Repositories\ModelRepository.cs" />
+    <Compile Include="Repositories\PlanePassportRepository.cs" />
     <Compile Include="Repositories\PlaneRepository.cs" />
     <Compile Include="Repositories\TerminalRepository.cs" />
   </ItemGroup>

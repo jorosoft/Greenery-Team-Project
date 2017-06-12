@@ -44,8 +44,7 @@ namespace AirportSystem.Data.Repositories
         }
 
         public void Delete(IAirline entity)
-        {
-            throw new NotImplementedException();
+        {            
         }
     }
 }

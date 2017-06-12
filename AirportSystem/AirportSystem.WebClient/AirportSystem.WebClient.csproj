@@ -241,12 +241,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AirlinesDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\AirportsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirportsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\PlanesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PlaneViewModel.cs" />
+    <Compile Include="PlanesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -322,6 +338,39 @@
     </None>
     <Content Include="DataSets\AirlinesDataSet.xss">
       <DependentUpon>AirlinesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSets\AirportsDataSet.xsc">
+      <DependentUpon>AirportsDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSets\AirportsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AirportsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSets\AirportsDataSet.xss">
+      <DependentUpon>AirportsDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSets\PlanesDataSet.xsc">
+      <DependentUpon>PlanesDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSets\PlanesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PlanesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSets\PlanesDataSet.xss">
+      <DependentUpon>PlanesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="PlanesDataSet.xsc">
+      <DependentUpon>PlanesDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="PlanesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PlanesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="PlanesDataSet.xss">
+      <DependentUpon>PlanesDataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
@@ -414,6 +463,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\AirlinesReport.rdlc" />
+    <EmbeddedResource Include="Reports\AirportsReport.rdlc" />
+    <EmbeddedResource Include="Reports\PlanesReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -10,41 +10,38 @@ using AirportSystem.Models;
 
 namespace AirportSystem.Data.Repositories
 {
-    public class AirportRepository : IRepository<IAirport>
+    public class PlanePassportRepository : IRepository<IPlanePassport>
     {
         private readonly DbContext context;
 
-        public AirportRepository(DbContext context)
+        public PlanePassportRepository(DbContext context)
         {
             this.context = context;
         }
 
-        public int Add(IAirport entity)
+        public int Add(IPlanePassport entity)
         {
-            int id = RepositoryMethods.Add<Airport>(this.context, (Airport)entity, x => x.Code == entity.Code);
+            return 0;
+        }        
 
-            return id;
-        }
-
-        public IEnumerable<IAirport> GetAll(Expression<Func<IAirport, bool>> filter)
+        public IEnumerable<IPlanePassport> GetAll(Expression<Func<IPlanePassport, bool>> filter)
         {
-            var allEntities = RepositoryMethods.GetAll<Airport>(this.context);
+            var allEntities = RepositoryMethods.GetAll<PlanePassport>(this.context);
 
             if (filter != null)
             {
                 return allEntities.Where(filter).ToList();
-
             }
+
             return allEntities.ToList();
         }
 
-        public void Update(IAirport entity)
-        {
-            RepositoryMethods.Update<Airport>(this.context, (Airport)entity);
+        public void Update(IPlanePassport entity)
+        {            
         }
 
-        public void Delete(IAirport entity)
-        {            
+        public void Delete(IPlanePassport entity)
+        {
         }
     }
 }

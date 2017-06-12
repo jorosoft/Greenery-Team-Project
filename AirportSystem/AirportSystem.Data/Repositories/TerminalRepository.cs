@@ -33,8 +33,8 @@ namespace AirportSystem.Data.Repositories
             if (filter != null)
             {
                 return allEntities.Where(filter).ToList();
-
             }
+
             return allEntities.ToList();
         }
 
@@ -45,7 +45,6 @@ namespace AirportSystem.Data.Repositories
 
         public void Delete(ITerminal entity)
         {
-            throw new NotImplementedException();
         }
     }
 }

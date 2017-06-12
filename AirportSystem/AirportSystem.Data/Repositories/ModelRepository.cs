@@ -45,7 +45,6 @@ namespace AirportSystem.Data.Repositories
 
         public void Delete(IModel entity)
         {
-            throw new NotImplementedException();
         }
     }
 }

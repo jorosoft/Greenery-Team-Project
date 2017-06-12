@@ -11,7 +11,15 @@
             </div>
             <div class="panel-body">
                 <p>
-                    @Html.ActionLink("Airlines Report", "ReportAirlines", null, new { target = "_blank" })
+                    <div>
+                        @Html.ActionLink("Airlines Report", "ReportAirlines", null, new { target = "_blank" })
+                    </div>
+                    <div>
+                        @Html.ActionLink("Destination Airports Report", "ReportDestinations", null, new { target = "_blank" })
+                    </div>
+                    <div>
+                        @Html.ActionLink("Landed Planes At Airport Report", "ReportPlanes", null, new { target = "_blank" })
+                    </div>
                 </p>
             </div>
         </div>

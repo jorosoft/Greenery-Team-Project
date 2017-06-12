@@ -2,14 +2,14 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Textbox Name="Textbox2">
+      <Textbox Name="Textbox1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Greenery Airport Available Airlines</Value>
+                <Value>Greenery Airport Flights Destinations</Value>
                 <Style>
                   <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -20,12 +20,21 @@
               <TextAlign>Center</TextAlign>
             </Style>
           </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>1.90182cm</Top>
-        <Left>1.29857cm</Left>
-        <Height>0.86458cm</Height>
-        <Width>14.00938cm</Width>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.63182cm</Top>
+        <Left>2.11349cm</Left>
+        <Height>0.89104cm</Height>
+        <Width>12.28958cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -36,14 +45,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox4">
+      <Textbox Name="Textbox2">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Actual At: </Value>
+                <Value>Actual at: </Value>
                 <Style />
               </TextRun>
               <TextRun>
@@ -54,11 +63,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.90752cm</Top>
-        <Left>5.32496cm</Left>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>1.69926cm</Top>
+        <Left>5.92349cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.64854cm</Width>
+        <Width>5.11937cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -70,14 +79,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Tablix Name="Tablix1">
+      <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.49458cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>7.50062cm</Width>
+              <Width>6.65396cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -93,7 +102,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Id</Value>
+                              <Value>Code</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -155,21 +164,21 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Id">
+                    <Textbox Name="Code">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Id.Value</Value>
+                              <Value>=Fields!Code.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Id</rd:DefaultName>
+                      <rd:DefaultName>Code</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -233,11 +242,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>AirlinesDataSet</DataSetName>
-        <Top>4.23016cm</Top>
-        <Left>3.36233cm</Left>
+        <DataSetName>AirportsDataSet</DataSetName>
+        <Top>3.27766cm</Top>
+        <Left>3.99203cm</Left>
         <Height>1.2cm</Height>
-        <Width>8.9952cm</Width>
+        <Width>9.15396cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -246,7 +255,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.13786in</Height>
+    <Height>2in</Height>
     <Style />
   </Body>
   <Width>6.5in</Width>
@@ -262,24 +271,24 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="Airlines">
+    <DataSource Name="AirportsDataSet">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>60ea38e1-2845-4f9c-b6c3-bcfa5ecc9025</rd:DataSourceID>
+      <rd:DataSourceID>56ce795f-b68f-4a32-b864-d1caff1ebce9</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="AirlinesDataSet">
+    <DataSet Name="AirportsDataSet">
       <Query>
-        <DataSourceName>Airlines</DataSourceName>
+        <DataSourceName>AirportsDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Name">
           <DataField>Name</DataField>
@@ -287,15 +296,15 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>AirlinesDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\PC\Desktop\Greenery-Team-Project\AirportSystem\AirportSystem.WebClient\AirlinesDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>Airlines</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>AirlinesTableAdapter</rd:TableAdapterName>
+        <rd:DataSetName>AirportsDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\PC\Desktop\Greenery-Team-Project\AirportSystem\AirportSystem.WebClient\DataSets\AirportsDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>Airports</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>46c1e4c5-7374-4a27-9445-e400bea86776</rd:ReportID>
+  <rd:ReportID>09827177-9c1b-4e1d-870a-85cb825ff43c</rd:ReportID>
 </Report>

@@ -58,8 +58,7 @@ namespace AirportSystem.Data.Repositories
         }
 
         public void Delete(IPlane entity)
-        {
-            throw new NotImplementedException();
+        {            
         }
     }
 }

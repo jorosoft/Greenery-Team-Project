@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PlanesDataSet" targetNamespace="http://tempuri.org/PlanesDataSet.xsd" xmlns:mstns="http://tempuri.org/PlanesDataSet.xsd" xmlns="http://tempuri.org/PlanesDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PlanesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PlanesDataSet" msprop:Generator_UserDSName="PlanesDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Planes" msprop:Generator_TableClassName="PlanesDataTable" msprop:Generator_TableVarName="tablePlanes" msprop:Generator_TablePropName="Planes" msprop:Generator_RowDeletingName="PlanesRowDeleting" msprop:Generator_RowChangingName="PlanesRowChanging" msprop:Generator_RowEvHandlerName="PlanesRowChangeEventHandler" msprop:Generator_RowDeletedName="PlanesRowDeleted" msprop:Generator_UserTableName="Planes" msprop:Generator_RowChangedName="PlanesRowChanged" msprop:Generator_RowEvArgName="PlanesRowChangeEvent" msprop:Generator_RowClassName="PlanesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PlaneManufacturer" msprop:Generator_ColumnVarNameInTable="columnPlaneManufacturer" msprop:Generator_ColumnPropNameInRow="PlaneManufacturer" msprop:Generator_ColumnPropNameInTable="PlaneManufacturerColumn" msprop:Generator_UserColumnName="PlaneManufacturer" type="xs:string" minOccurs="0" />
+              <xs:element name="PlaneModel" msprop:Generator_ColumnVarNameInTable="columnPlaneModel" msprop:Generator_ColumnPropNameInRow="PlaneModel" msprop:Generator_ColumnPropNameInTable="PlaneModelColumn" msprop:Generator_UserColumnName="PlaneModel" type="xs:string" minOccurs="0" />
+              <xs:element name="PlaneSeats" msprop:Generator_ColumnVarNameInTable="columnPlaneSeats" msprop:Generator_ColumnPropNameInRow="PlaneSeats" msprop:Generator_ColumnPropNameInTable="PlaneSeatsColumn" msprop:Generator_UserColumnName="PlaneSeats" type="xs:string" minOccurs="0" />
+              <xs:element name="PlaneRegNumber" msprop:Generator_ColumnVarNameInTable="columnPlaneRegNumber" msprop:Generator_ColumnPropNameInRow="PlaneRegNumber" msprop:Generator_ColumnPropNameInTable="PlaneRegNumberColumn" msprop:Generator_UserColumnName="PlaneRegNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="PlaneYearOfReg" msprop:Generator_ColumnVarNameInTable="columnPlaneYearOfReg" msprop:Generator_ColumnPropNameInRow="PlaneYearOfReg" msprop:Generator_ColumnPropNameInTable="PlaneYearOfRegColumn" msprop:Generator_UserColumnName="PlaneYearOfReg" type="xs:string" minOccurs="0" />
+              <xs:element name="PlaneState" msprop:Generator_ColumnVarNameInTable="columnPlaneState" msprop:Generator_ColumnPropNameInRow="PlaneState" msprop:Generator_ColumnPropNameInTable="PlaneStateColumn" msprop:Generator_UserColumnName="PlaneState" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

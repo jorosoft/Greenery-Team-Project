@@ -1,5 +1,8 @@
-﻿using System;
+﻿using AirportSystem.Data;
+using AirportSystem.Data.Migrations;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +19,12 @@ namespace AirportSystem.WebClient
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AirportSystemMsSqlDbContext, ConfigurationMSSql>());
+            using (AirportSystemMsSqlDbContext db = new AirportSystemMsSqlDbContext())
+            {
+                db.Database.CreateIfNotExists();
+            }
         }
     }
 }

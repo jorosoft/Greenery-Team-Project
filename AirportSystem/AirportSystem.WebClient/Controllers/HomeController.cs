@@ -14,6 +14,7 @@ using AirportSystem.Contracts.MainDll;
 using Ninject;
 using AirportSystem.Contracts.Models;
 using Microsoft.Reporting.WebForms;
+using AirportSystem.WebClient.Models;
 
 namespace AirportSystem.WebClient.Controllers
 {
@@ -256,6 +257,38 @@ namespace AirportSystem.WebClient.Controllers
             var file = "AirlinesReport.rdlc";
 
             return ReportGenerator(airlines, data, file);
+        }
+
+        [Authorize]
+        public ActionResult ReportDestinations()
+        {
+            var airports = this.msSqlData.Airports.GetAll(null);
+            var data = "AirportsDataSet";
+            var file = "AirportsReport.rdlc";
+
+            return ReportGenerator(airports, data, file);
+        }
+
+        [Authorize]
+        public ActionResult ReportPlanes()
+        {
+            var planes = this.msSqlData.Planes.GetAll(null);
+            var planePassports = this.msSqlData.PlanePassports.GetAll(null);
+            var manufacturers = this.msSqlData.Manufacturers.GetAll(null);
+            var models = this.msSqlData.Models.GetAll(null);
+
+            var result = new List<PlaneViewModel>();
+
+            foreach (var plane in planes)
+            {
+                var newPlane = new PlaneViewModel((Plane)plane);
+                result.Add(newPlane);
+            }
+
+            var data = "PlanesDataSet";
+            var file = "PlanesReport.rdlc";
+
+            return ReportGenerator(result, data, file);
         }
 
         public ActionResult Error(string message)
