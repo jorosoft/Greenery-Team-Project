@@ -13,6 +13,7 @@ using AirportSystem.Converters;
 using AirportSystem.Contracts.MainDll;
 using Ninject;
 using AirportSystem.Contracts.Models;
+using Microsoft.Reporting.WebForms;
 
 namespace AirportSystem.WebClient.Controllers
 {
@@ -194,8 +195,55 @@ namespace AirportSystem.WebClient.Controllers
         [Authorize]
         public ActionResult Reports()
         {
-
             return View();
+        }
+
+        [Authorize]
+        public ActionResult ReportGenerator(dynamic model, string dataset, string file)
+        {
+            LocalReport lr = new LocalReport();
+            string path = Path.Combine(Server.MapPath("~/Reports"), file);
+            if (System.IO.File.Exists(path))
+            {
+                lr.ReportPath = path;
+            }
+            else
+            {
+                return View("Index");
+            }
+
+            ReportDataSource rd = new ReportDataSource(dataset, model);
+            lr.DataSources.Add(rd);
+
+            string reportType = "PDF";
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+            string deviceInfo =
+            "<DeviceInfo>" +
+            "  <OutputFormat>" + "PDF" + "</OutputFormat>" +
+            "  <PageWidth>8.5in</PageWidth>" +
+            "  <PageHeight>11in</PageHeight>" +
+            "  <MarginTop>0.5in</MarginTop>" +
+            "  <MarginLeft>0.5in</MarginLeft>" +
+            "  <MarginRight>0.5in</MarginRight>" +
+            "  <MarginBottom>0.5in</MarginBottom>" +
+            "</DeviceInfo>";
+
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+
+            renderedBytes = lr.Render(
+                reportType,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings);
+
+            return File(renderedBytes, mimeType);
         }
 
         public ActionResult Error(string message)
