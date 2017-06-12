@@ -134,11 +134,12 @@ namespace AirportSystem.WebClient.Controllers
         {
             if (Request.Files.Count > 0)
             {
-                var files = Request.Files[0];
-                if (files != null && files.ContentLength > 0)
+                var file = Request.Files[0];
+                if (file != null && file.ContentLength > 0)
                 {
-                    var filename = Path.GetFileName(files.FileName);
-                    var path = Path.GetFullPath(files.FileName);
+                    var filename = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/"), filename);
+                    file.SaveAs(path);
                 }
             }
 

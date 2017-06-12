@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flights>
+    <flight>
+        <sheduledTime>2017-06-06T17:34:08.0039447-05:00</sheduledTime>        
+        <airportCode>LBWN</airportCode>
+        <airportName>Varna Airport</airportName>        
+        <flightType>Arrivals</flightType>
+        <planeManufacturer>Airbus</planeManufacturer>
+        <planeModel>A320</planeModel>
+        <planeSeats>180</planeSeats>
+        <planeRegistrationNumber>BG22345SL</planeRegistrationNumber>
+        <planeYearOfRegistration>1994</planeYearOfRegistration>
+        <planeState>Perfect condition</planeState>
+        <airline>Bulgaria Air</airline>
+        <terminal>T2</terminal>        
+    </flight>
+    <flight>
+        <sheduledTime>2017-06-07T13:34:08.0039447-05:00</sheduledTime>
+        <airportCode>LBSF</airportCode>
+        <airportName>Sofia Airport</airportName>        
+        <flightType>Departures</flightType>
+        <planeManufacturer>Boeing</planeManufacturer>
+        <planeModel>747</planeModel>
+        <planeSeats>200</planeSeats>
+        <planeRegistrationNumber>BG77777SL</planeRegistrationNumber>
+        <planeYearOfRegistration>2001</planeYearOfRegistration>
+        <planeState>Average condition</planeState>
+        <airline>Colombia Air</airline>
+        <terminal>T5</terminal>        
+    </flight>
+</flights>  
