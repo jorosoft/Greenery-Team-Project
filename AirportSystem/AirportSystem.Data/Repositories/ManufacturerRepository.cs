@@ -42,10 +42,5 @@ namespace AirportSystem.Data.Repositories
         {
             RepositoryMethods.Update<Manufacturer>(this.context, (Manufacturer)entity);
         }
-        public void Delete(IManufacturer entity)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }
