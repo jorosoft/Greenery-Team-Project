@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,21 +12,42 @@ namespace AirportSystem.Data.Repositories.Methods
 {
     static class RepositoryMethods
     {
-        public static IEnumerable<T> GetAll<T>(DbContext context) 
-            where T: class
+        public static int Add<T>(DbContext context, T entity, Expression<Func<T, bool>> filter)
+            where T: class, IBaseModel
         {
-            return context.Set<T>().ToList();
+            int id = 0;
+
+            var found = context.Set<T>().FirstOrDefault(filter);
+            if (found == null)
+            {
+                context.Set<T>().Add(entity);
+                context.SaveChanges();
+                id = entity.Id;
+            }
+            else
+            {
+                id = found.Id;
+            }
+
+            return id;
         }
 
-        public static T GetById<T>(int id, IEnumerable<T> allElements)
-            where T : IBaseModel
-
+        public static IQueryable<T> GetAll<T>(DbContext context) 
+            where T: class
         {
-            var searchedElement = from element in allElements
-                                  where element.Id == id
-                                  select element;
+            return context.Set<T>();
+        }
 
-            return searchedElement.ToList()[0];
+        public static void Update<T>(DbContext context,T entity)
+            where T: class, IBaseModel
+        {
+            var entityToUpdate = RepositoryMethods.GetAll<T>(context)
+                                                  .Where(x => x.Id == entity.Id)
+                                                  .ToList()[0];
+
+            context.Set<T>().Remove(entityToUpdate);
+            context.Set<T>().Add(entity);
+            context.SaveChanges();            
         }
     }
 }

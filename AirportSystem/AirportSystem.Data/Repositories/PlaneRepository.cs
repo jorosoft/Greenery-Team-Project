@@ -42,17 +42,19 @@ namespace AirportSystem.Data.Repositories
 
         public IEnumerable<IPlane> GetAll(Expression<Func<IPlane, bool>> filter)
         {
+            var allEntities = RepositoryMethods.GetAll<Plane>(this.context);
+
             if (filter != null)
             {
-                return this.context.Set<Plane>().Where(filter).ToList();
-            }
+                return allEntities.Where(filter).ToList();
 
-            return RepositoryMethods.GetAll<Plane>(this.context);
+            }
+            return allEntities.ToList();
         }
 
         public void Update(IPlane entity)
         {
-            throw new NotImplementedException();
+            RepositoryMethods.Update<Plane>(this.context, (Plane)entity);
         }
 
         public void Delete(IPlane entity)

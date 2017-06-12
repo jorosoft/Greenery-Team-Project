@@ -21,36 +21,26 @@ namespace AirportSystem.Data.Repositories
 
         public int Add(IManufacturer entity)
         {
-            int id = 0;
-
-            var found = context.Set<Manufacturer>().FirstOrDefault(x => x.Name == entity.Name);
-            if (found == null)
-            {
-                context.Set<Manufacturer>().Add((Manufacturer)entity);
-                context.SaveChanges();
-                id = entity.Id;
-            }
-            else
-            {
-                id = found.Id;
-            }
+            int id = RepositoryMethods.Add<Manufacturer>(this.context, (Manufacturer)entity, x => x.Name == entity.Name);
 
             return id;
         }
 
         public IEnumerable<IManufacturer> GetAll(Expression<Func<IManufacturer, bool>> filter)
         {
+            var allEntities = RepositoryMethods.GetAll<Manufacturer>(this.context);
+
             if (filter != null)
             {
-                return this.context.Set<Manufacturer>().Where(filter).ToList();
-            }
+                return allEntities.Where(filter).ToList();
 
-            return RepositoryMethods.GetAll<Manufacturer>(this.context);
+            }
+            return allEntities.ToList();
         }
 
         public void Update(IManufacturer entity)
         {
-            throw new NotImplementedException();
+            RepositoryMethods.Update<Manufacturer>(this.context, (Manufacturer)entity);
         }
         public void Delete(IManufacturer entity)
         {

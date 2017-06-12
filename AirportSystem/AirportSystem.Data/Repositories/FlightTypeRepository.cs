@@ -21,36 +21,26 @@ namespace AirportSystem.Data.Repositories
 
         public int Add(IFlightType entity)
         {
-            int id = 0;
-
-            var found = context.Set<FlightType>().FirstOrDefault(x => x.Name == entity.Name);
-            if (found == null)
-            {
-                context.Set<FlightType>().Add((FlightType)entity);
-                context.SaveChanges();
-                id = entity.Id;
-            }
-            else
-            {
-                id = found.Id;
-            }
+            int id = RepositoryMethods.Add<FlightType>(this.context, (FlightType)entity, x => x.Name == entity.Name);
 
             return id;
         }
 
         public IEnumerable<IFlightType> GetAll(Expression<Func<IFlightType, bool>> filter)
         {
+            var allEntities = RepositoryMethods.GetAll<FlightType>(this.context); 
+
             if (filter != null)
             {
-                return this.context.Set<FlightType>().Where(filter).ToList();
+                return allEntities.Where(filter).ToList();
 
             }
-            return RepositoryMethods.GetAll<FlightType>(this.context);
+            return allEntities.ToList();
         }
         
         public void Update(IFlightType entity)
         {
-            throw new NotImplementedException();
+            RepositoryMethods.Update<FlightType>(this.context, (FlightType)entity);
         }
 
         public void Delete(IFlightType entity)
