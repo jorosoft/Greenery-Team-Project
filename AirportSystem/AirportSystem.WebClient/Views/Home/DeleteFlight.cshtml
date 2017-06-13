@@ -15,6 +15,24 @@
                     <h3 class="panel-title">Delete Flight</h3>
                 </div>
                 <div class="panel-body">
+                    <table>                        
+                            <tr>
+                                <td>@Html.Label("SheduledTime", "Time")</td>
+                                <td>@Html.TextBoxFor(m => m.SheduledTime, new { @readonly = "readonly" })</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.Label("FlightType.Name", "Flight Type")</td>
+                                <td>@Html.TextBoxFor(m => m.FlightType.Name, new { @readonly = "readonly" })</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.Label("DestinationAirport", "Airport Code")</td>
+                                <td>@Html.TextBoxFor(m => m.DestinationAirport.Code, new { @readonly = "readonly" })</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.Label("DestinationAirport.Name", "Destination")</td>
+                                <td>@Html.TextBoxFor(m => m.DestinationAirport.Name, new { @readonly = "readonly" })</td>
+                            </tr>
+                        </table>   
                     <div id="flight-details-div" class="formcell">
                         <input type="submit" class="grid-filter-btn btn-large btn-danger" value="Delete Flight" />
                     </div>

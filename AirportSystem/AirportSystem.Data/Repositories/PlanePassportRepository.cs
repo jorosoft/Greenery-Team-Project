@@ -21,7 +21,7 @@ namespace AirportSystem.Data.Repositories
 
         public int Add(IPlanePassport entity)
         {
-            return 0;
+            return entity.PlaneId;
         }        
 
         public IEnumerable<IPlanePassport> GetAll(Expression<Func<IPlanePassport, bool>> filter)
@@ -36,8 +36,22 @@ namespace AirportSystem.Data.Repositories
             return allEntities.ToList();
         }
 
-        public void Update(IPlanePassport entity)
-        {            
+        public int Update(IPlanePassport entity)
+        {
+            var entityToUpdate = this.context
+                .Set<PlanePassport>()
+                .FirstOrDefault(x => x.PlaneId == entity.PlaneId);
+
+            if (entityToUpdate != null)
+            {
+                entityToUpdate.RegistrationNumber = entity.RegistrationNumber;
+                entityToUpdate.YearOfRegistration = entity.YearOfRegistration;
+                entityToUpdate.State = entity.State;
+
+                this.context.SaveChanges();
+            }
+
+            return entity.PlaneId;
         }
 
         public void Delete(IPlanePassport entity)

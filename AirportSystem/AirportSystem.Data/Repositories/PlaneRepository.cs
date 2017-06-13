@@ -52,9 +52,22 @@ namespace AirportSystem.Data.Repositories
             return allEntities.ToList();
         }
 
-        public void Update(IPlane entity)
+        public int Update(IPlane entity)
         {
-            RepositoryMethods.Update<Plane>(this.context, (Plane)entity);
+            var entityToUpdate = this.context
+                .Set<Plane>()
+                .FirstOrDefault(x => x.Id == entity.Id);
+
+            if (entityToUpdate != null)
+            {
+                entityToUpdate.ManufacturerId = entity.ManufacturerId;
+                entityToUpdate.ModelId = entity.ModelId;
+                entityToUpdate.AirlineId = entity.AirlineId;
+
+                this.context.SaveChanges();
+            }
+
+            return entity.Id;
         }
 
         public void Delete(IPlane entity)

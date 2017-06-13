@@ -12,7 +12,7 @@ namespace AirportSystem.Contracts.Data.Repositories
 
         int Add(T entity);
 
-        void Update(T entity);
+        int Update(T entity);
 
         void Delete(T entity);      
     }

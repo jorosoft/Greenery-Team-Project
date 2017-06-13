@@ -13,7 +13,7 @@ namespace AirportSystem.Data.Repositories.Methods
     static class RepositoryMethods
     {
         public static int Add<T>(DbContext context, T entity, Expression<Func<T, bool>> filter)
-            where T: class, IBaseModel
+            where T : class, IBaseModel
         {
             int id = 0;
 
@@ -32,22 +32,10 @@ namespace AirportSystem.Data.Repositories.Methods
             return id;
         }
 
-        public static IQueryable<T> GetAll<T>(DbContext context) 
-            where T: class
+        public static IQueryable<T> GetAll<T>(DbContext context)
+            where T : class
         {
             return context.Set<T>();
-        }
-
-        public static void Update<T>(DbContext context,T entity)
-            where T: class, IBaseModel
-        {
-            var entityToUpdate = RepositoryMethods.GetAll<T>(context)
-                                                  .Where(x => x.Id == entity.Id)
-                                                  .ToList()[0];
-
-            context.Set<T>().Remove(entityToUpdate);
-            context.Set<T>().Add(entity);
-            context.SaveChanges();            
-        }
+        }        
     }
 }

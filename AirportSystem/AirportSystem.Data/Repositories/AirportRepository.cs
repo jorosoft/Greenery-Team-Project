@@ -38,9 +38,20 @@ namespace AirportSystem.Data.Repositories
             return allEntities.ToList();
         }
 
-        public void Update(IAirport entity)
+        public int Update(IAirport entity)
         {
-            RepositoryMethods.Update<Airport>(this.context, (Airport)entity);
+            var entityToUpdate = this.context
+                .Set<Airport>()
+                .FirstOrDefault(x => x.Id == entity.Id);
+
+            if (entityToUpdate != null)
+            {
+                entityToUpdate.Code = entity.Code;
+                entityToUpdate.Name = entity.Name;
+                this.context.SaveChanges();
+            }
+
+            return entity.Id;
         }
 
         public void Delete(IAirport entity)
