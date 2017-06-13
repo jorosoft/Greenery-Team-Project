@@ -62,7 +62,34 @@ namespace AirportSystem
 
         public void AddFlight(IFlight flight)
         {
-            throw new NotImplementedException();
+            var flightToAdd = (Flight)flight;
+
+            int flightTypeId = this.msSqlData.FlightTypes.Add(flightToAdd.FlightType);
+            int airlineId = this.msSqlData.Airlines.Add(flightToAdd.Plane.Airlines);
+            int airportId = this.msSqlData.Airports.Add(flightToAdd.DestinationAirport);
+            int manufacturerId = this.msSqlData.Manufacturers.Add(flightToAdd.Plane.Manufacturers);
+            int modelId = this.msSqlData.Models.Add(flightToAdd.Plane.Models);            
+            int planeId = this.msSqlData.Planes.Add(new Plane
+            {
+                PlanePass = new PlanePassport
+                {
+                    RegistrationNumber = flightToAdd.Plane.PlanePassport.RegistrationNumber,
+                    YearOfRegistration = flightToAdd.Plane.PlanePassport.YearOfRegistration,
+                    State = flightToAdd.Plane.PlanePassport.State
+                },
+                ManufacturerId = manufacturerId,
+                ModelId = modelId,
+                AirlineId = airlineId
+            });
+            int terminalId = this.msSqlData.Terminals.Add(flightToAdd.Terminal);
+            this.msSqlData.Flights.Add(new Flight
+            {
+                SheduledTime = flightToAdd.SheduledTime,
+                DestinationAirportId = airportId,
+                FlightTypeId = flightTypeId,
+                PlaneId = planeId,
+                TerminalId = terminalId
+            });
         }
 
         public void UpdateFlight(IFlight flight)

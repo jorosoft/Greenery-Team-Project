@@ -43,6 +43,7 @@ namespace AirportSystem.Data.Repositories
                 return allEntities.Where(filter).ToList();
 
             }
+
             return allEntities.ToList();
         }
        
@@ -53,6 +54,8 @@ namespace AirportSystem.Data.Repositories
 
         public void Delete(IFlight entity)
         {
+            this.context.Set<Flight>().Remove((Flight)entity);
+            this.context.SaveChanges();
         }
     }
 }
