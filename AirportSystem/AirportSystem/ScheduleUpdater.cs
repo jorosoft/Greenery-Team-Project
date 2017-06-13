@@ -104,26 +104,14 @@ namespace AirportSystem
             flightToUpdate.Plane.ManufacturerId = manufacturerId;
             flightToUpdate.Plane.ModelId = modelId;
             flightToUpdate.Plane.AirlineId = airlineId;
-
-            int planeId = this.msSqlData.Planes.Update(new Plane
-            {
-                PlanePass = new PlanePassport
-                {
-                    RegistrationNumber = flightToUpdate.Plane.PlanePassport.RegistrationNumber,
-                    YearOfRegistration = flightToUpdate.Plane.PlanePassport.YearOfRegistration,
-                    State = flightToUpdate.Plane.PlanePassport.State
-                }                
-            });
+            this.msSqlData.PlanePassports.Update(flightToUpdate.Plane.PlanePassport);
+            int planeId = this.msSqlData.Planes.Update(flightToUpdate.Plane);
             int terminalId = this.msSqlData.Terminals.Update(flightToUpdate.Terminal);
             flightToUpdate.DestinationAirportId = airportId;
             flightToUpdate.FlightTypeId = flightTypeId;
             flightToUpdate.PlaneId = planeId;
             flightToUpdate.TerminalId = terminalId;
-            this.msSqlData.Flights.Update(new Flight
-            {
-                SheduledTime = flightToUpdate.SheduledTime,
-               
-            });
+            this.msSqlData.Flights.Update(flightToUpdate);
         }        
     }
 }

@@ -8,7 +8,7 @@
 <section>
     @using (Html.BeginForm("EditFlightApply", "Home", new { ReturnUrl = ViewBag.ReturnUrl }))
     {
-       @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
 
         <div class="row">
@@ -25,7 +25,17 @@
                                 <div id="editproductnumberdiv" class="formcell">
                                     <table>
                                         <tr>
-                                            <td>@Html.HiddenFor(m => m.Id)</td>
+                                            <td>
+                                                @Html.HiddenFor(m => m.Id)
+                                                @Html.HiddenFor(m => m.FlightType.Id)
+                                                @Html.HiddenFor(m => m.DestinationAirport.Id)
+                                                @Html.HiddenFor(m => m.Terminal.Id)
+                                                @Html.HiddenFor(m => m.Plane.Id)
+                                                @Html.HiddenFor(m => m.Plane.Manufacturers.Id)
+                                                @Html.HiddenFor(m => m.Plane.Models.Id)
+                                                @Html.HiddenFor(m => m.Plane.Airlines.Id)
+                                                @Html.HiddenFor(m => m.Plane.PlanePassport.PlaneId)
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>@Html.Label("SheduledTime", "Scheduled Time")</td>
