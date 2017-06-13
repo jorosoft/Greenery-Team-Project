@@ -32,6 +32,20 @@ namespace AirportSystem.Data.Repositories.Methods
             return id;
         }
 
+        public static void Delete<T>(DbContext context, T entity)
+            where T : class
+        {
+            if (context.Set<T>().Contains(entity))
+            {
+                context.Set<T>().Remove(entity);
+                context.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("Entity does not exist in the current context!");
+            }
+        }
+
         public static IQueryable<T> GetAll<T>(DbContext context)
             where T : class
         {

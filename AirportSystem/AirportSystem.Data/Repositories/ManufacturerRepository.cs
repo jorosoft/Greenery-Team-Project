@@ -55,6 +55,7 @@ namespace AirportSystem.Data.Repositories
 
         public void Delete(IManufacturer entity)
         {
+            RepositoryMethods.Delete<Manufacturer>(this.context, (Manufacturer)entity);
         }
     }
 }

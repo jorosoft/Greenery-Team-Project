@@ -71,7 +71,8 @@ namespace AirportSystem.Data.Repositories
         }
 
         public void Delete(IPlane entity)
-        {            
+        {
+            RepositoryMethods.Delete<Plane>(this.context, (Plane)entity);
         }
     }
 }

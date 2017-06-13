@@ -56,6 +56,7 @@ namespace AirportSystem.Data.Repositories
 
         public void Delete(IPlanePassport entity)
         {
+            RepositoryMethods.Delete<PlanePassport>(this.context, (PlanePassport)entity);
         }
     }
 }

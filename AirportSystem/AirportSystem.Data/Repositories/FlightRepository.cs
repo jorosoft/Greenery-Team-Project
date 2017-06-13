@@ -70,8 +70,7 @@ namespace AirportSystem.Data.Repositories
 
         public void Delete(IFlight entity)
         {
-            this.context.Set<Flight>().Remove((Flight)entity);
-            this.context.SaveChanges();
+            RepositoryMethods.Delete<Flight>(this.context, (Flight)entity);
         }
     }
 }

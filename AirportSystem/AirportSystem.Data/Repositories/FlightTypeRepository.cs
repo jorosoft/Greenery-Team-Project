@@ -55,6 +55,7 @@ namespace AirportSystem.Data.Repositories
 
         public void Delete(IFlightType entity)
         {
+            RepositoryMethods.Delete<FlightType>(this.context, (FlightType)entity);
         }
     }
 }
