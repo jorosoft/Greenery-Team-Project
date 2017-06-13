@@ -10,8 +10,8 @@ namespace AirportSystem.Data.Migrations
     {
         public ConfigurationMSSql()
         {
-            this.AutomaticMigrationsEnabled = true;
-            this.AutomaticMigrationDataLossAllowed = true;
+            this.AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(AirportSystem.Data.AirportSystemMsSqlDbContext context)

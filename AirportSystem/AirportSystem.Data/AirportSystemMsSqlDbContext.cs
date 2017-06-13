@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using AirportSystem.Models;
+using AirportSystem.Data.Migrations;
 
 namespace AirportSystem.Data
 {
@@ -7,7 +8,7 @@ namespace AirportSystem.Data
     {
         public AirportSystemMsSqlDbContext()
             : base("AirportSystemDB")
-        {
+        {            
         }
         
         public virtual IDbSet<Plane> Planes { get; set; }

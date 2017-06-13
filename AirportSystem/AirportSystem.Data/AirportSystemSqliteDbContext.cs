@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using AirportSystem.Data.Migrations;
+using System.Data.Entity;
 
 namespace AirportSystem.Data
 {
@@ -6,7 +7,7 @@ namespace AirportSystem.Data
     {
         public AirportSystemSqliteDbContext()
             :base("AirportSystemSqLite")
-        {
+        {            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

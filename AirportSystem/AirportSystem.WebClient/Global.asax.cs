@@ -25,6 +25,18 @@ namespace AirportSystem.WebClient
             {
                 db.Database.CreateIfNotExists();
             }
+
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AirportSystemPSqlDbContext, ConfigurationPSql>());
+            //using (AirportSystemPSqlDbContext db = new AirportSystemPSqlDbContext())
+            //{
+            //    db.Database.CreateIfNotExists();
+            //}
+
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<AirportSystemSqliteDbContext, ConfigurationSqlite>());
+            //using (AirportSystemSqliteDbContext db = new AirportSystemSqliteDbContext())
+            //{
+            //    db.Database.CreateIfNotExists();
+            //}
         }
     }
 }
